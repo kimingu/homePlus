@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="conMapper">
+<resultMap id="BulletinBoard" type="BulletinBoard">
+   	<id property="bbCode" column="BB_CODE"/>
+   	<result property="mCode" column="M_CODE"/>
+   	<result property="bbCategory" column="BB_CATEGORY"/>
+   	<result property="bbTitle" column="BB_TITLE"/>
+   	<result property="bbContent" column="BB_CONTENT"/>
+   	<result property="bbDcategory" column="BB_DCATEGORY"/>
+   	<result property="bbAnswer" column="BB_ANSWER"/>
+   	<result property="bbStatus" column="BB_STATUS"/>
+   	<result property="bbOriginName" column="BB_ORIGINNAME"/>
+   	<result property="bbReName" column="BB_RENAME"/>
+   	<result property="bbCreateDate" column="BB_CREATEDATE"/>
+   	<result property="bbAnwDate" column="BB_ANWDATE"/>
+   </resultMap>
+   
+   <resultMap id="ContractBulletinBoard" type="ContractBulletinBoard">
+   	<result property="contracta" column="CONTRACTA"/>
+   	<result property="contractb" column="CONTRACTB"/>
+   	<result property="contractc" column="CONTRACTC"/>
+   	<result property="contractd" column="CONTRACTD"/>
+   </resultMap>
+   
+   <select id="getConListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM BULLETINBOARD
+		WHERE BB_CATEGORY = '3'
+	</select>
+	
+	<select id="selectConList" resultMap="BulletinBoard">
+		SELECT *
+		FROM BULLETINBOARD
+		WHERE BB_CATEGORY = '3'
+		ORDER BY BB_CODE DESC
+	</select>
+	
+	<select id="selectCountBulletinBoard" resultMap="ContractBulletinBoard">
+		SELECT CONTRACTA, CONTRACTB, CONTRACTC, CONTRACTD
+		FROM (SELECT COUNT(*) CONTRACTA
+        FROM BULLETINBOARD
+        WHERE BB_CATEGORY = '3'),
+        (SELECT COUNT(*) CONTRACTB
+        FROM BULLETINBOARD
+        WHERE BB_CATEGORY = '3' AND BB_STATUS = 'N'),
+        (SELECT COUNT(*) CONTRACTC
+        FROM BULLETINBOARD
+        WHERE BB_CATEGORY = '3' AND BB_STATUS = 'L'),
+        (SELECT COUNT(*) CONTRACTD
+        FROM BULLETINBOARD
+        WHERE BB_CATEGORY = '3' AND BB_STATUS = 'Y')
+	</select>
+	
+	<select id="selectBulletinBoard" resultMap="BulletinBoard">
+		SELECT *
+		FROM BULLETINBOARD
+		WHERE BB_CATEGORY = '3' AND BB_CODE = #{bbCode}
+	</select>
+	
+	<select id="reportBulletinBoardSearchCount" parameterType="SCRW" resultType="_int">
+		SELECT COUNT(*)
+		FROM BULLETINBOARD
+		<where>
+			BB_CATEGORY = '3'
+			<if test="all != null">
+				AND ((BB_TITLE LIKE '%' || #{all} || '%')
+				OR (BB_CONTENT LIKE '%' || #{all} || '%')
+				OR (BB_DCATEGORY LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="bbTitle != null">
+				AND BB_TITLE LIKE '%' || #{bbTitle} || '%'
+			</if>
+			<if test="bbContent != null">
+				AND BB_CONTENT LIKE '%' || #{bbContent} || '%'
+			</if>
+			<if test="bbDcategory != null">
+				AND BB_DCATEGORY LIKE '%' || #{bbDcategory} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="reportBulletinBoardSearch" parameterType="SCRW" resultMap="BulletinBoard">
+		SELECT *
+		FROM BULLETINBOARD
+		<where>
+			BB_CATEGORY = '3'
+			<if test="all != null">
+				AND ((BB_TITLE LIKE '%' || #{all} || '%')
+				OR (BB_CONTENT LIKE '%' || #{all} || '%')
+				OR (BB_DCATEGORY LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="bbTitle != null">
+				AND BB_TITLE LIKE '%' || #{bbTitle} || '%'
+			</if>
+			<if test="bbContent != null">
+				AND BB_CONTENT LIKE '%' || #{bbContent} || '%'
+			</if>
+			<if test="bbDcategory != null">
+				AND BB_DCATEGORY LIKE '%' || #{bbDcategory} || '%'
+			</if>
+		</where>
+		ORDER BY ROWNUM
+	</select>
+	
+	<update id="updateBulletinBoard1" parameterType="string">
+		UPDATE BULLETINBOARD
+		SET BB_STATUS = 'L'
+		WHERE BB_CODE = #{bbCode} AND BB_STATUS = 'N'
+	</update>
+	
+	<update id="updateBulletinBoard2" parameterType="string">
+		UPDATE BULLETINBOARD
+		SET BB_STATUS = 'Y'
+		WHERE BB_CODE = #{bbCode} AND BB_STATUS = 'L'
+	</update>
+</mapper>

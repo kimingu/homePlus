@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+
+	<resultMap id="boardResultSet" type="Board">
+		<id property="b_code" column="B_CODE"/>
+		<result property="m_id" column="M_ID"/>
+		<result property="b_title" column="B_TITLE"/>
+		<result property="b_content" column="B_CONTENT"/>
+		<result property="b_count" column="B_COUNT"/>
+		<result property="b_status" column="B_STATUS"/>
+		<result property="b_name" column="B_NAME"/>
+		<result property="b_create_date" column="B_CREATE_DATE"/>
+		<result property="b_mdify_date" column="B_MDIFY_DATE"/>
+		<result property="orignal_filename" column="ORIGINAL_FILENAME"/>
+		<result property="rename_filename" column="RENAME_FILENAME"/>
+		<result property="b_category" column="B_CATEGORY"/>
+	</resultMap>
+	
+	<resultMap id="declarationResultSet" type="Board_Declaration">
+		<id property="bd_code" column="BD_CODE"/>
+		<result property="b_code" column="B_CODE"/>
+		<result property="m_id" column="M_ID"/>
+		<result property="bd_content" column="BD_CONTENT"/>
+		<result property="bd_status" column="BD_STATUS"/>
+		<result property="bd_create_date" column="BD_CREATE_DATE"/>
+		<result property="bd_category" column="BD_CATEGORY"/>
+	</resultMap>
+	
+	<resultMap id="replyResultSet" type="Board_Reply">
+		<id property="r_code" column="R_CODE"/>
+		<result property="b_code" column="B_CODE"/>
+		<result property="m_id" column="M_ID"/>
+		<result property="r_content" column="R_CONTENT"/>
+		<result property="r_status" column="R_STATUS"/>
+		<result property="r_create_date" column="R_CREATE_DATE"/>
+		<result property="r_modify_date" column="R_MODIFY_DATE"/>
+	</resultMap> 
+	
+	<select id="getListCount" parameterType="map" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+		<where>
+     	 	B_STATUS = 'Y' AND B_NAME='커뮤니티' 
+			 
+	     	 <if test="category == '잡담'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+	     	 
+	     	 <if test="category == '후기'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+	     	 
+	     	 <if test="category == '정보'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+	     	
+	     	 <if test="category == '질문'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+		</where>
+		</select>
+		
+	<select id="getListCount2" parameterType="map" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+		<where>
+     	 	B_STATUS = 'Y' AND B_NAME='아파트장터' 
+			 
+	     	 <if test="category == '팝니다'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+	     	 
+	     	 <if test="category == '삽니다'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+		</where>
+	</select>
+	
+	<select id="getListCount3" parameterType="map" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+		<where>
+     	 	B_STATUS = 'Y' AND B_NAME='공지사항,이벤트' 
+			 
+	     	 <if test="category == '공지사항'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+	     	 
+	     	 <if test="category == '이벤트'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+		</where>
+	</select>
+	
+	<!-- 글작성 -->
+	<insert id="insertBoard" parameterType="Board">
+		INSERT INTO BOARD
+		VALUES(SEQ_B_CODE.NEXTVAL,#{m_id},#{b_title},#{b_content},DEFAULT,'Y',#{b_name},SYSDATE,SYSDATE,#{orignal_filename},#{rename_filename},#{b_category})
+	</insert>
+	<!-- 신고작성 -->
+	<insert id="insertDeclaratio" parameterType="Board_Declaration">
+		INSERT INTO BOARD_DECLARATION
+		VALUES(SEQ_BD_CODE.NEXTVAL,#{b_code},#{m_id},#{bd_content},'Y',SYSDATE,#{bd_category})
+	</insert> 
+	
+	<!-- 커뮤니티 리스트 -->
+	<select id="commList" parameterType="map" resultMap="boardResultSet">
+	  SELECT *
+      FROM BOARD
+      <where>
+     	 B_STATUS = 'Y' AND B_NAME='커뮤니티' 
+     	 
+     	 <if test="category == '잡담'">
+     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+     	 </if>
+     	 
+     	 <if test="category == '후기'">
+     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+     	 </if>
+     	 
+     	 <if test="category == '정보'">
+     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+     	 </if>
+     	
+     	 <if test="category == '질문'">
+     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+     	 </if>
+      </where>
+      ORDER BY ROWNUM DESC	
+	</select>
+	
+	<!-- 마켓 리스트 -->
+	<select id="maList" parameterType="map" resultMap="boardResultSet">
+	  SELECT *
+      FROM BOARD
+      <where>
+     	 B_STATUS = 'Y' AND B_NAME='아파트장터' 
+     	 
+     	 <if test="category == '팝니다'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+	     	 
+	     	 <if test="category == '삽니다'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+     	
+      </where>
+      ORDER BY ROWNUM DESC	
+	</select>
+	
+	<!-- 공지사항 리스트 -->
+	<select id="noList" parameterType="map" resultMap="boardResultSet">
+	  SELECT *
+      FROM BOARD
+      <where>
+     	 B_STATUS = 'Y' AND B_NAME='공지사항,이벤트' 
+     	 
+     	 <if test="category == '공지사항'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+	     	 
+	     	 <if test="category == '이벤트'">
+	     	 	AND B_CATEGORY LIKE '%' || #{category} || '%'
+	     	 </if>
+     	
+      </where>
+      ORDER BY ROWNUM DESC	
+	</select>
+	
+	<select id="searchCommunityCount" parameterType="map" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+		<where>
+			 B_STATUS = 'Y'  AND B_NAME='커뮤니티' 
+		
+			<if test="sc.all != null">
+				AND ((B_TITLE LIKE '%' || #{sc.all} || '%') 
+				OR (M_ID LIKE '%' || #{sc.all} || '%')
+				OR (B_CONTENT LIKE '%' || #{sc.all} || '%'))
+			</if>
+			<if test="sc.writer != null">
+				AND M_ID LIKE '%' || #{sc.writer} || '%'
+			</if>
+			<if test="sc.title != null">
+				AND B_TITLE LIKE '%' || #{sc.title} || '%'
+			</if>
+			<if test="sc.content != null">
+				AND B_CONTENT LIKE '%' || #{sc.content} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="searchNoticeCount" parameterType="map" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+		<where>
+			 B_STATUS = 'Y'  AND B_NAME='공지사항,이벤트' 
+		
+			<if test="sc.all != null">
+				AND ((B_TITLE LIKE '%' || #{sc.all} || '%') 
+				OR (M_ID LIKE '%' || #{sc.all} || '%')
+				OR (B_CONTENT LIKE '%' || #{sc.all} || '%'))
+			</if>
+			<if test="sc.writer != null">
+				AND M_ID LIKE '%' || #{sc.writer} || '%'
+			</if>
+			<if test="sc.title != null">
+				AND B_TITLE LIKE '%' || #{sc.title} || '%'
+			</if>
+			<if test="sc.content != null">
+				AND B_CONTENT LIKE '%' || #{sc.content} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="searchMarketCount" parameterType="map" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+		<where>
+			 B_STATUS = 'Y'  AND B_NAME='아파트장터' 
+		
+			<if test="sc.all != null">
+				AND ((B_TITLE LIKE '%' || #{sc.all} || '%') 
+				OR (M_ID LIKE '%' || #{sc.all} || '%')
+				OR (B_CONTENT LIKE '%' || #{sc.all} || '%'))
+			</if>
+			<if test="sc.writer != null">
+				AND M_ID LIKE '%' || #{sc.writer} || '%'
+			</if>
+			<if test="sc.title != null">
+				AND B_TITLE LIKE '%' || #{sc.title} || '%'
+			</if>
+			<if test="sc.content != null">
+				AND B_CONTENT LIKE '%' || #{sc.content} || '%'
+			</if>
+		</where>
+	</select>
+	
+	
+	<select id="searchCommunity" parameterType="map" resultMap="boardResultSet">
+		SELECT *
+		FROM BOARD
+		<where>        
+		 B_STATUS = 'Y'  AND B_NAME='커뮤니티' 
+      
+         <if test="sc.all != null">
+            AND ((B_TITLE LIKE '%' || #{sc.all} || '%') 
+				OR (M_ID LIKE '%' || #{sc.all} || '%')
+				OR (B_CONTENT LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND M_ID LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND B_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND B_CONTENT LIKE '%' || #{sc.content} || '%'
+         </if>
+		</where>
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="searchNotice" parameterType="map" resultMap="boardResultSet">
+		SELECT *
+		FROM BOARD
+		<where>        
+		 B_STATUS = 'Y'  AND B_NAME='공지사항,이벤트' 
+      
+         <if test="sc.all != null">
+            AND ((B_TITLE LIKE '%' || #{sc.all} || '%') 
+				OR (M_ID LIKE '%' || #{sc.all} || '%')
+				OR (B_CONTENT LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND M_ID LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND B_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND B_CONTENT LIKE '%' || #{sc.content} || '%'
+         </if>
+		</where>
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="searchMarket" parameterType="map" resultMap="boardResultSet">
+		SELECT *
+		FROM BOARD
+		<where>        
+		 B_STATUS = 'Y'  AND B_NAME='아파트장터' 
+      
+         <if test="sc.all != null">
+            AND ((B_TITLE LIKE '%' || #{sc.all} || '%') 
+				OR (M_ID LIKE '%' || #{sc.all} || '%')
+				OR (B_CONTENT LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND M_ID LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND B_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND B_CONTENT LIKE '%' || #{sc.content} || '%'
+         </if>
+		</where>
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<!-- 조회수 -->
+	<update id="addReadCount" parameterType="_int">
+		UPDATE BOARD
+		SET B_COUNT = B_COUNT + 1 
+		WHERE B_CODE = #{B_CODE}
+	</update>
+	
+	<!-- 커뮤니티 디테일 -->
+	<select id="commDetail" parameterType="_int" resultMap="boardResultSet">
+		SELECT *
+		FROM BOARD 
+		WHERE B_CODE=#{B_CODE}
+	</select>
+	
+	<!-- 공지사항 디테일 -->
+	<select id="noDetail" parameterType="_int" resultMap="boardResultSet">
+		SELECT *
+		FROM BOARD 
+		WHERE B_CODE=#{B_CODE} 
+	</select>
+	
+	<!-- 마켓 디테일 -->
+	<select id="maDetail" parameterType="_int" resultMap="boardResultSet">
+		SELECT *
+		FROM BOARD 
+		WHERE B_CODE=#{B_CODE} 
+	</select>
+	 
+	<!-- 글 삭제 -->
+	<update id="deleteBoard" parameterType="_int">
+		UPDATE BOARD
+		SET B_STATUS = 'N'
+		WHERE B_CODE = #{B_CODE}
+	</update>	
+	<!-- 게시글 수정 뷰 -->
+	<select id="selectBoardOne" parameterType="String" resultMap="boardResultSet">
+		SELECT * 
+		FROM BOARD 
+		WHERE B_CODE = #{b_code}
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard" parameterType="Board">
+		UPDATE BOARD
+		SET B_TITLE = #{b_title},B_CONTENT = #{b_content},ORIGINAL_FILENAME = #{orignal_filename},
+		RENAME_FILENAME = #{rename_filename},B_CATEGORY = #{b_category},B_NAME = #{b_name}
+		WHERE B_CODE = #{b_code}
+	</update>
+	
+	<!-- 댓글 작성 -->
+	<insert id="insertReply" parameterType="Board_Reply">
+		INSERT INTO BOARD_REPLY VALUES(SEQ_R_CODE.NEXTVAL, #{b_code}, #{m_id}, #{r_content}, 'Y', SYSDATE, SYSDATE)
+	</insert>
+	
+	<!-- 댓글 리스트 -->
+	<select id="selectReplyList" parameterType="_int" resultMap="replyResultSet">
+		SELECT *
+		FROM BOARD_REPLY 
+		WHERE B_CODE = #{b_code}
+		AND R_STATUS = 'Y'
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<!-- 댓글 삭제 -->
+	<update id="deleteReply" parameterType="_int">
+		UPDATE BOARD_REPLY
+		SET R_STATUS = 'N'
+		WHERE R_CODE = #{r_code}
+	</update>
+	
+
+</mapper>

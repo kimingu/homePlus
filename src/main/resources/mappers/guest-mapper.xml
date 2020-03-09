@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="guestMapper">
+<resultMap id="guestResultSet" type="GuestRoom">
+		<id property="guerReCode" column="GUER_RE_CODE"/>
+		<result property="mCode" column="M_CODE"/>
+		<result property="guerRoom" column="GUER_ROOM"/>
+		<result property="guerReDate" column="GUER_RE_DATE"/>
+		<result property="guerReStatus" column="GUER_RE_STATUS"/>
+	</resultMap>
+	<resultMap id="guestResultSet2" type="GuestRoom">
+		<id property="guerReCode" column="GUER_RE_CODE"/>
+		<result property="mCode" column="M_CODE"/>
+		<result property="guerRoom" column="GUER_ROOM"/>
+		<result property="guerReDate" column="GUER_RE_DATE"/>
+		<result property="guerReStatus" column="GUER_RE_STATUS"/>
+		<result property="mName" column="M_NAME"/>
+	</resultMap>
+	<select id="searchGuest" parameterType="GuestRoom" resultType="_int">
+		SELECT COUNT(*)
+		FROM GUESTROOM
+		WHERE M_CODE = #{mCode} AND GUER_RE_STATUS = 'N'AND
+       <![CDATA[#{guerReDate}-(INTERVAL '7' DAY)< GUER_RE_DATE]]> AND  <![CDATA[#{guerReDate} + (INTERVAL '7' DAY)> GUER_RE_DATE]]>
+	</select>
+	<insert id="insertGuest" parameterType="GuestRoom">
+		INSERT INTO GUESTROOM
+		VALUES(SEQ_GUEST_CODE.NEXTVAL,#{mCode},#{guerRoom},#{guerReDate},'N')
+	</insert>
+	
+	<select id="guestList" resultMap="guestResultSet">
+		SELECT GUER_RE_DATE
+		FROM GUESTROOM
+		WHERE GUER_RE_STATUS = 'N'
+		AND GUER_ROOM = #{guerRoom}
+	</select> 
+	
+	<select id="adGuestList" resultMap="guestResultSet2">
+		SELECT *
+		FROM AD_GUESTLIST_VIEW
+		WHERE <![CDATA[to_CHAR(GUER_RE_DATE,'YYYY-MM-DD')>= to_CHAR(SYSDATE , 'YYYY-MM-DD')]]>
+		
+	</select> 
+	
+	<select id="adSearchReGMember" resultMap="guestResultSet2">
+		SELECT *
+		FROM AD_GUESTLIST_VIEW
+		WHERE GUER_RE_STATUS = 'N' AND <![CDATA[to_date(GUER_RE_DATE,'YYYY-MM-DD') >= to_date(SYSDATE, 'YYYY-MM-DD')]]> AND M_NAME=#{mName}
+		
+	</select>
+</mapper>

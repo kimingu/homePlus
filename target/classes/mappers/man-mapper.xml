@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="man-mapper">
+   <resultMap id="Company" type="Company">
+      <id property="comCode" column="COM_CODE"/>
+      <result property="comDivision" column="COM_DIVISION"/>
+      <result property="comName" column="COM_NAME"/>
+      <result property="comCeo" column="COM_CEO"/>
+      <result property="comStartDate" column="COM_START_DATE"/>
+      <result property="comEndDate" column="COM_END_DATE"/>
+      <result property="comEsDate" column="COM_ES_DATE"/>
+      <result property="comScale" column="COM_SCALE"/>
+      <result property="comNw" column="COM_NW"/>
+      <result property="comCapital" column="COM_CAPITAL"/>
+      <result property="comMajor" column="COM_MAJOR"/>
+      <result property="comTel" column="COM_TEL"/>
+      <result property="comPay" column="COM_PAY"/>
+      <result property="comStatus" column="COM_STATUS"/>
+   </resultMap>
+   <!-- <resultMap id="exListResultSet" type="exList">
+      <id property="exCode" column="BB_CODE"/>
+      <result property="exDate;" column="CATE1"/>
+      <result property="cate2" column="CATE2"/>
+      <result property="cate3" column="CATE3"/>
+      <result property="cate4" column="CATE4"/>
+   </resultMap> -->
+   <resultMap id="Expense" type="Expense">
+   	<id property="exCode" column="EX_CODE"/>
+   	<result property="comCode" column="COM_CODE"/>
+   	<result property="comName" column="COM_NAME"/>
+   	<result property="exDate" column="EX_DATE"/>
+   	<result property="exExpend" column="EX_EXPEND"/>
+   	<result property="exPrice" column="EX_PRICE"/>
+   	<result property="exStatus" column="EX_STATUS"/>
+   </resultMap>
+   
+   <resultMap id="Adminn" type="Adminn">
+   	<id property="aCode" column="A_CODE"/>
+   	<result property="comCode" column="COM_CODE"/>
+   	<result property="comName" column="COM_NAME"/>
+   	<result property="aId" column="A_ID"/>
+   	<result property="aPwd" column="A_PWD"/>
+   	<result property="aName" column="A_NAME"/>
+   	<result property="aBirth" column="A_BIRTH"/>
+   	<result property="aEmail" column="A_EMAIL"/>
+   	<result property="aPhone" column="A_PHONE"/>
+   	<result property="aAddress" column="A_ADDRESS"/>
+   	<result property="aDepartment" column="A_DEPARTMENT"/>
+   	<result property="aEnrollDate" column="A_ENROLL_DATE"/>
+   	<result property="aStatus" column="A_STATUS"/>
+   	<result property="apCode" column="AP_CODE"/>
+   </resultMap>
+   
+   <resultMap id="BulletinBoard" type="BulletinBoard">
+   	<id property="bbCode" column="BB_CODE"/>
+   	<result property="mCode" column="M_CODE"/>
+   	<result property="bbCategory" column="BB_CATEGORY"/>
+   	<result property="bbTitle" column="BB_TITLE"/>
+   	<result property="bbContent" column="BB_CONTENT"/>
+   	<result property="bbDcategory" column="BB_DCATEGORY"/>
+   	<result property="bbAnswer" column="BB_ANSWER"/>
+   	<result property="bbStatus" column="BB_STATUS"/>
+   	<result property="bbOriginName" column="BB_ORIGINNAME"/>
+   	<result property="bbReName" column="BB_RENAME"/>
+   	<result property="bbCreateDate" column="BB_CREATEDATE"/>
+   	<result property="bbAnwDate" column="BB_ANWDATE"/>
+   </resultMap>
+   
+   <resultMap id="FacilityTaskk" type="FacilityTaskk">
+   	<id property="ft_code" column="FT_CODE"/>
+   	<result property="comName" column="COM_NAME"/>
+   	<result property="ft_cate" column="FT_CATE"/>
+   	<result property="ft_detail" column="FT_DETAIL"/>
+   	<result property="ft_need" column="FT_NEED"/>
+   	<result property="ft_status" column="FT_STATUS"/>
+   </resultMap>
+   
+   <resultMap id="meResultSet" type="ME">
+   	<result property="mExpense16" column="EX_PRICE16"/>
+   	<result property="mExpense17" column="EX_PRICE17"/>
+   	<result property="mExpense18" column="EX_PRICE18"/>
+   	<result property="mExpense19" column="EX_PRICE19"/>
+   	<result property="mExpense20" column="EX_PRICE20"/>
+   </resultMap>
+   
+   <resultMap id="ContractCompany" type="ContractCompany">
+   	<result property="contracting" column="CONTRACTING"/>
+   	<result property="contractend" column="CONTRACTEND"/>
+   	<result property="contractall" column="CONTRACTALL"/>
+   </resultMap>
+   
+   <resultMap id="ContractWorker" type="ContractWorker">
+   	<result property="contracta" column="CONTRACTA"/>
+   	<result property="contractb" column="CONTRACTB"/>
+   	<result property="contractc" column="CONTRACTC"/>
+   	<result property="contractd" column="CONTRACTD"/>
+   	<result property="contracte" column="CONTRACTE"/>
+   </resultMap>
+   
+   <resultMap id="ContractBulletinBoard" type="ContractBulletinBoard">
+   	<result property="contracta" column="CONTRACTA"/>
+   	<result property="contractb" column="CONTRACTB"/>
+   	<result property="contractc" column="CONTRACTC"/>
+   	<result property="contractd" column="CONTRACTD"/>
+   </resultMap>
+   
+   <resultMap id="ContractFacility" type="ContractFacility">
+   	<result property="contracta" column="CONTRACTA"/>
+   	<result property="contractb" column="CONTRACTB"/>
+   	<result property="contractc" column="CONTRACTC"/>
+   	<result property="contractd" column="CONTRACTD"/>
+   </resultMap>
+   
+   <select id="getCListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM COMPANY
+		WHERE COM_STATUS = 'Y'		
+	</select>
+	
+	<select id="getCCListCount" resultType="_int">
+      <![CDATA[
+      SELECT COUNT(*)
+      FROM COMPANY
+      WHERE TO_CHAR(SYSDATE, 'YYYYMMDD') <= TO_CHAR(COM_END_DATE, 'YYYYMMDD') AND COM_STATUS = 'Y'
+      ]]>
+   </select>
+	
+	<select id="selectCList" resultMap="Company">
+		<![CDATA[
+      SELECT *
+      FROM COMPANY
+      WHERE COM_STATUS='Y'
+      ORDER BY 5 DESC
+      ]]>
+	</select>
+	
+	<select id="selectCCList" resultMap="Company">
+		<![CDATA[
+		SELECT *
+		FROM COMPANY
+		WHERE TO_CHAR(SYSDATE, 'YYYYMMDD') <= TO_CHAR(COM_END_DATE, 'YYYYMMDD')
+		]]>
+	</select>
+	
+	<select id="selectCompany" resultMap="Company">
+		SELECT *
+		FROM COMPANY
+		WHERE COM_CODE = #{comCode} AND COM_STATUS = 'Y'
+	</select>
+	
+	<update id="updateCompany" parameterType="Company">
+		UPDATE COMPANY
+		SET COM_DIVISION = #{comDivision}, COM_NAME = #{comName}, COM_CEO = #{comCeo}, COM_START_DATE = #{comStartDate},
+			COM_END_DATE = #{comEndDate}, COM_ES_DATE = #{comEsDate}, COM_SCALE = #{comScale}, COM_NW = #{comNw}, COM_CAPITAL = #{comCapital}, COM_MAJOR = #{comMajor},
+			COM_TEL = #{comTel}, COM_PAY = #{comPay}
+		WHERE COM_CODE = #{comCode}
+	</update>
+	
+	<insert id="insertCompany" parameterType="Company">
+		INSERT INTO COMPANY
+		VALUES (SEQ_COM_CODE.NEXTVAL, #{comDivision}, #{comName}, #{comCeo}, #{comStartDate}, #{comEndDate}, #{comEsDate}, #{comScale}, #{comNw}, #{comCapital}, #{comMajor}, #{comTel}, #{comPay}, DEFAULT)
+	</insert>
+	
+	<delete id="deleteCompany" parameterType="string">
+		UPDATE COMPANY
+		SET COM_STATUS = 'N'
+		WHERE COM_CODE = #{comCode}
+	</delete>
+	
+	<select id="companySearchCount" parameterType="SCC" resultType="_int">
+		SELECT COUNT(*)
+		FROM COMPANY
+		<where>
+			COM_STATUS = 'Y'
+			
+			<if test="all != null">
+				AND ((COM_NAME LIKE '%' || #{all} || '%')
+				OR (COM_DIVISION LIKE '%' || #{all} || '%')
+				OR (COM_CEO LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="comDivision != null">
+				AND COM_DIVISION LIKE '%' || #{comDivision} || '%'
+			</if>
+			<if test="comName != null">
+				AND COM_NAME LIKE '%' || #{comName} || '%'
+			</if>
+			<if test="comCeo != null">
+				AND COM_CEO LIKE '%' || #{comCeo} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="companySearch" parameterType="SCC" resultMap="Company">
+		SELECT *
+		FROM COMPANY
+		<where>
+			COM_STATUS = 'Y'
+			
+			<if test="all != null">
+				AND ((COM_NAME LIKE '%' || #{all} || '%')
+				OR (COM_DIVISION LIKE '%' || #{all} || '%')
+				OR (COM_CEO LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="comDivision != null">
+				AND COM_DIVISION LIKE '%' || #{comDivision} || '%'
+			</if>
+			<if test="comName != null">
+				AND COM_NAME LIKE '%' || #{comName} || '%'
+			</if>
+			<if test="comCeo != null">
+				AND COM_CEO LIKE '%' || #{comCeo} || '%'
+			</if> 
+		</where>
+		ORDER BY ROWNUM
+	</select>
+	
+	<select id="selectCountList" resultMap="ContractCompany">
+		<![CDATA[
+		SELECT CONTRACTEND, CONTRACTING, CONTRACTALL
+		FROM (SELECT COUNT(*) CONTRACTEND
+        FROM COMPANY
+        WHERE (TO_CHAR(SYSDATE, 'YYYYMMDD') > TO_CHAR(COM_END_DATE, 'YYYYMMDD')) AND COM_STATUS = 'Y'),
+        (SELECT COUNT(*) CONTRACTING
+        FROM COMPANY
+        WHERE (TO_CHAR(SYSDATE, 'YYYYMMDD') <= TO_CHAR(COM_END_DATE, 'YYYYMMDD')) AND COM_STATUS = 'Y'),
+        (SELECT COUNT(*) CONTRACTALL
+        FROM COMPANY
+        WHERE COM_STATUS = 'Y')
+        ]]>
+	</select>
+	
+	
+	
+	<!-- 근무자 정보 -->
+	<select id="getWListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM ADMIN
+		WHERE A_STATUS = 'Y'		
+	</select>
+	
+	<select id="selectWList" resultMap="Adminn">
+		SELECT *
+		FROM ADMIN
+		LEFT JOIN COMPANY USING(COM_CODE)
+		WHERE A_STATUS = 'Y'
+		ORDER BY A_ENROLL_DATE DESC
+	</select>
+	
+	<select id="selectWorker" resultMap="Adminn">
+		SELECT *
+		FROM ADMIN
+		JOIN COMPANY USING(COM_CODE)
+		WHERE A_CODE = #{aCode} AND A_STATUS = 'Y'
+	</select>
+	
+	<select id="workerSearchCount" parameterType="SCW" resultType="_int">
+		SELECT COUNT(*)
+		FROM ADMIN
+		LEFT JOIN COMPANY USING(COM_CODE)
+		<where>
+			A_STATUS = 'Y'
+			
+			<if test="all != null">
+				AND ((COM_NAME LIKE '%' || #{all} || '%')
+				OR (A_DEPARTMENT LIKE '%' || #{all} || '%')
+				OR (A_NAME LIKE '%' || #{all} || '%')
+				OR (A_ID LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="comName != null">
+				AND COM_NAME LIKE '%' || #{comName} || '%'
+			</if>
+			<if test="aDepartment != null">
+				AND A_DEPARTMENT LIKE '%' || #{aDepartment} || '%'
+			</if>
+			<if test="aName != null">
+				AND A_NAME LIKE '%' || #{aName} || '%'
+			</if>
+			<if test="aId != null">
+				AND A_ID LIKE '%' || #{aId} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="workerSearch" parameterType="SCW" resultMap="Adminn">
+		SELECT *
+		FROM ADMIN
+		LEFT JOIN COMPANY USING(COM_CODE)
+		<where>
+			A_STATUS = 'Y'
+			
+			<if test="all != null">
+				AND ((COM_NAME LIKE '%' || #{all} || '%')
+				OR (A_DEPARTMENT LIKE '%' || #{all} || '%')
+				OR (A_NAME LIKE '%' || #{all} || '%')
+				OR (A_ID LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="comName != null">
+				AND COM_NAME LIKE '%' || #{comName} || '%'
+			</if>
+			<if test="aDepartment != null">
+				AND A_DEPARTMENT LIKE '%' || #{aDepartment} || '%'
+			</if>
+			<if test="aName != null">
+				AND A_NAME LIKE '%' || #{aName} || '%'
+			</if>
+			<if test="aId != null">
+				AND A_ID LIKE '%' || #{aId} || '%'
+			</if>
+		</where>
+		ORDER BY ROWNUM
+	</select>
+	
+	<select id="selectCountWorker" resultMap="ContractWorker">
+		<![CDATA[
+		SELECT CONTRACTA, CONTRACTB, CONTRACTC, CONTRACTD
+		FROM (SELECT COUNT(*) CONTRACTA
+        FROM ADMIN
+        WHERE A_DEPARTMENT = '보안'
+        AND A_STATUS = 'Y'),
+        (SELECT COUNT(*) CONTRACTB
+        FROM ADMIN
+        WHERE (A_DEPARTMENT = '미화' OR A_DEPARTMENT = '인력')
+        AND A_STATUS = 'Y'),
+        (SELECT COUNT(*) CONTRACTC
+        FROM ADMIN
+        WHERE A_DEPARTMENT = '시설'
+        AND A_STATUS = 'Y'),
+        (SELECT COUNT(*) CONTRACTD
+        FROM ADMIN
+        WHERE (A_DEPARTMENT LIKE '편의시설' OR A_DEPARTMENT LIKE '기타')
+        AND A_STATUS = 'Y')
+		]]>
+	</select>
+	
+	<!-- 근무자 신고 -->
+	<select id="getRWListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM BULLETINBOARD
+		WHERE BB_CATEGORY = '2'
+	</select>
+	
+	<select id="selectRWList" resultMap="BulletinBoard">
+		SELECT *
+		FROM BULLETINBOARD
+		WHERE BB_CATEGORY = '2'
+		ORDER BY BB_CREATEDATE DESC
+	</select>
+	
+	<select id="selectBulletinBoard" resultMap="BulletinBoard">
+		SELECT *
+		FROM BULLETINBOARD
+		WHERE BB_CATEGORY = '2' AND BB_CODE = #{bbCode}
+	</select>
+	
+	<select id="reportBulletinBoardSearchCount" parameterType="SCRW" resultType="_int">
+		SELECT COUNT(*)
+		FROM BULLETINBOARD
+		<where>
+			BB_CATEGORY = '2'
+			<if test="all != null">
+				AND ((BB_TITLE LIKE '%' || #{all} || '%')
+				OR (BB_CONTENT LIKE '%' || #{all} || '%')
+				OR (BB_DCATEGORY LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="bbTitle != null">
+				AND BB_TITLE LIKE '%' || #{bbTitle} || '%'
+			</if>
+			<if test="bbContent != null">
+				AND BB_CONTENT LIKE '%' || #{bbContent} || '%'
+			</if>
+			<if test="bbDcategory != null">
+				AND BB_DCATEGORY LIKE '%' || #{bbDcategory} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="reportBulletinBoardSearch" parameterType="SCRW" resultMap="BulletinBoard">
+		SELECT *
+		FROM BULLETINBOARD
+		<where>
+			BB_CATEGORY = '2'
+			<if test="all != null">
+				AND ((BB_TITLE LIKE '%' || #{all} || '%')
+				OR (BB_CONTENT LIKE '%' || #{all} || '%')
+				OR (BB_DCATEGORY LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="bbTitle != null">
+				AND BB_TITLE LIKE '%' || #{bbTitle} || '%'
+			</if>
+			<if test="bbContent != null">
+				AND BB_CONTENT LIKE '%' || #{bbContent} || '%'
+			</if>
+			<if test="bbDcategory != null">
+				AND BB_DCATEGORY LIKE '%' || #{bbDcategory} || '%'
+			</if>
+		</where>
+		ORDER BY ROWNUM
+	</select>
+	
+	<update id="updateBulletinBoard0" parameterType="string">
+		UPDATE BULLETINBOARD
+		SET BB_STATUS = 'N'
+		WHERE BB_CODE = #{bbCode} AND (BB_STATUS = 'L' OR BB_STATUS = 'Y')
+	</update>
+	
+	<update id="updateBulletinBoard1" parameterType="string">
+		UPDATE BULLETINBOARD
+		SET BB_STATUS = 'L'
+		WHERE BB_CODE = #{bbCode} AND (BB_STATUS = 'N' OR BB_STATUS = 'Y')
+	</update>
+	
+	<update id="updateBulletinBoard2" parameterType="string">
+		UPDATE BULLETINBOARD
+		SET BB_STATUS = 'Y'
+		WHERE BB_CODE = #{bbCode} AND (BB_STATUS = 'L' OR BB_STATUS = 'N')
+	</update>
+	
+	<select id="selectCountBulletinBoard" resultMap="ContractBulletinBoard">
+		SELECT CONTRACTA, CONTRACTB, CONTRACTC, CONTRACTD
+		FROM (SELECT COUNT(*) CONTRACTA
+        FROM BULLETINBOARD
+        WHERE BB_CATEGORY = '2'),
+        (SELECT COUNT(*) CONTRACTB
+        FROM BULLETINBOARD
+        WHERE BB_CATEGORY = '2' AND BB_STATUS = 'N'),
+        (SELECT COUNT(*) CONTRACTC
+        FROM BULLETINBOARD
+        WHERE BB_CATEGORY = '2' AND BB_STATUS = 'L'),
+        (SELECT COUNT(*) CONTRACTD
+        FROM BULLETINBOARD
+        WHERE BB_CATEGORY = '2' AND BB_STATUS = 'Y')
+	</select>
+	
+	<!-- 시설 신고 -->
+	<select id="getRFListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM FACILITYTASK
+	</select>
+	
+	<select id="selectRFList" resultMap="FacilityTaskk">
+		SELECT *
+		FROM FACILITYTASK
+		JOIN COMPANY ON(COMPANY.COM_CODE = FACILITYTASK.FT_NEED)
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="selectFacility" resultMap="FacilityTaskk">
+		SELECT *
+		FROM FACILITYTASK
+		JOIN COMPANY ON(COMPANY.COM_CODE = FACILITYTASK.FT_NEED)
+		WHERE FT_CODE = #{ft_code}
+	</select>
+	
+	<select id="reportFacilitySearchCount" parameterType="SCRF" resultType="_int">
+		SELECT COUNT(*)
+		FROM FACILITYTASK
+		JOIN COMPANY ON(COMPANY.COM_CODE = FACILITYTASK.FT_NEED)
+		<where>
+			
+			<if test="all != null">
+				AND ((FT_CATE LIKE '%' || #{all} || '%')
+				OR (FT_DETAIL LIKE '%' || #{all} || '%')
+				OR (FT_NEED LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="ft_cate != null">
+				AND FT_CATE LIKE '%' || #{ft_cate} || '%'
+			</if>
+			<if test="ft_detail != null">
+				AND FT_DETAIL LIKE '%' || #{ft_detail} || '%'
+			</if>
+			<if test="ft_need != null">
+				AND FT_NEED LIKE '%' || #{ft_need} || '%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="reportFacilitySearch" parameterType="SCRF" resultMap="FacilityTaskk">
+		SELECT *
+		FROM FACILITYTASK
+		JOIN COMPANY ON(COMPANY.COM_CODE = FACILITYTASK.FT_NEED)
+		<where>
+			
+			<if test="all != null">
+				AND ((FT_CATE LIKE '%' || #{all} || '%')
+				OR (FT_DETAIL LIKE '%' || #{all} || '%')
+				OR (FT_NEED LIKE '%' || #{all} || '%'))
+			</if>
+			<if test="ft_cate != null">
+				AND FT_CATE LIKE '%' || #{ft_cate} || '%'
+			</if>
+			<if test="ft_detail != null">
+				AND FT_DETAIL LIKE '%' || #{ft_detail} || '%'
+			</if>
+			<if test="ft_need != null">
+				AND FT_NEED LIKE '%' || #{ft_need} || '%'
+			</if>
+		</where>
+		ORDER BY ROWNUM
+	</select>
+	
+	<update id="updateFacility0" parameterType="string">
+		UPDATE FACILITYTASK
+		SET FT_STATUS = 'N'
+		WHERE FT_CODE = #{ft_code} AND (FT_STATUS = 'L' OR FT_STATUS = 'Y')
+	</update>
+	
+	<update id="updateFacility1" parameterType="string">
+		UPDATE FACILITYTASK
+		SET FT_STATUS = 'L'
+		WHERE FT_CODE = #{ft_code} AND (FT_STATUS = 'N' OR FT_STATUS = 'Y')
+	</update>
+	
+	<update id="updateFacility2" parameterType="string">
+		UPDATE FACILITYTASK
+		SET FT_STATUS = 'Y'
+		WHERE FT_CODE = #{ft_code} AND (FT_STATUS = 'L' OR FT_STATUS = 'N')
+	</update>
+	
+	<select id="selectCountFacility" resultMap="ContractFacility">
+		SELECT CONTRACTA, CONTRACTB, CONTRACTC, CONTRACTD
+		FROM (SELECT COUNT(*) CONTRACTA
+        FROM FACILITYTASK),
+        (SELECT COUNT(*) CONTRACTB
+        FROM FACILITYTASK
+        WHERE FT_STATUS = 'N'),
+        (SELECT COUNT(*) CONTRACTC
+        FROM FACILITYTASK
+        WHERE FT_STATUS = 'L'),
+        (SELECT COUNT(*) CONTRACTD
+        FROM FACILITYTASK
+        WHERE FT_STATUS = 'Y')
+	</select>
+	
+	
+	<!-- 재무 -->
+	<select id="getEListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM EXPENSE
+		WHERE EX_STATUS = 'Y'
+	</select>
+	
+	<select id="selectEList" resultMap="Expense">
+		SELECT *
+		FROM EXPENSE
+		JOIN COMPANY USING(COM_CODE)
+		WHERE EX_STATUS = 'Y'
+		ORDER BY EX_CODE DESC
+		<!-- SELECT E.*, W.COM_NAME
+		FROM EXPENSE E
+		JOIN COMPANY W ON(E.COM_CODE = W.COM_CODE)
+		WHERE E.EX_CODE = #{exCode} AND EX_STATUS = 'Y'
+		ORDER BY E.EX_CODE DESC -->
+
+	</select>
+	
+	<insert id="insertExpense" parameterType="map">
+		INSERT INTO EXPENSE
+		VALUES (SEQ_EX_CODE.NEXTVAL, #{comCode}, #{e.exDate}, #{e.exExpend}, #{e.exPrice}, DEFAULT)
+	</insert>
+	
+	<select id="selectExpense" resultMap="Expense">
+		SELECT E.*, W.COM_NAME
+		FROM EXPENSE E
+		JOIN COMPANY W ON(E.COM_CODE = W.COM_CODE)
+		WHERE E.EX_CODE = #{exCode} AND EX_STATUS = 'Y'
+	</select>
+	
+	<update id="updateExpense" parameterType="Expense">
+		UPDATE EXPENSE
+		SET EX_DATE = #{exDate}, EX_EXPEND = #{exExpend}, EX_PRICE = #{exPrice}
+		WHERE EX_CODE = #{exCode}
+	</update>
+	
+	<update id="deleteExpense" parameterType="string">
+		UPDATE EXPENSE
+		SET EX_STATUS = 'N'
+		WHERE EX_CODE = #{exCode}
+	</update>
+	
+	<select id="ExpenseMainExpense" resultMap="meResultSet">
+		SELECT
+         (SELECT SUM(EX_PRICE) FROM EXPENSE WHERE SUBSTR(EX_DATE, 1, 2) LIKE '16') EX_PRICE16,
+         (SELECT SUM(EX_PRICE) FROM EXPENSE WHERE SUBSTR(EX_DATE, 1, 2) LIKE '17') EX_PRICE17,
+         (SELECT SUM(EX_PRICE) FROM EXPENSE WHERE SUBSTR(EX_DATE, 1, 2) LIKE '18') EX_PRICE18,
+         (SELECT SUM(EX_PRICE) FROM EXPENSE WHERE SUBSTR(EX_DATE, 1, 2) LIKE '19') EX_PRICE19,
+         (SELECT SUM(EX_PRICE) FROM EXPENSE WHERE SUBSTR(EX_DATE, 1, 2) LIKE '20') EX_PRICE20
+      FROM EXPENSE
+      WHERE ROWNUM =1
+	</select>
+	
+
+
+	
+   
+</mapper>

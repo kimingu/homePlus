@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+	
+	<!-- 회원정보 맵 상세 -->
+<resultMap id="memberResultSet" type="Member">
+		<id property="mCode" column="M_CODE"/>
+		<result property="apCode" column="AP_CODE"/>
+		<result property="mId" column="M_ID"/>
+		<result property="mPwd" column="M_PWD"/>
+		<result property="mName" column="M_NAME"/>
+		<result property="mBirth" column="M_BIRTH"/>
+		<result property="mEmail" column="M_EMAIL"/>
+		<result property="mPhone" column="M_PHONE"/>
+		<result property="mAddress" column="M_ADDRESS"/>
+		<result property="mArea" column="M_AREA"/>
+		<result property="mRelation" column="M_RELATION"/>
+		<result property="mCar" column="M_CAR"/>
+		<result property="mAccount" column="M_ACCOUNT"/>
+		<result property="mEnrollDate" column="M_ENROLLDATE"/>
+		<result property="mRefidCard" column="M_REFID_CARD"/>
+		<result property="mOriginalFilename" column="M_ORIGINAL_FILENAME"/>
+		<result property="mRenameFilename" column="M_RENAME_FILENAME"/>
+		<result property="mStatus" column="M_STATUS"/>
+		<result property="mEmailStatus" column="M_EMAIL_STATUS"/>
+		<result property="mAddressCode" column="M_ADDRESS_CODE"/>
+	</resultMap>
+	
+<!-- 아이디 중복 확인 -->
+	<select id="checkIdDup" parameterType="string" resultType="_int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE M_ID = #{mId}
+	</select>
+	
+	<insert id="insertMember" parameterType="Member">
+		INSERT INTO MEMBER
+		VALUES(SEQ_M_CODE.NEXTVAL, #{apCode}, #{mId}, #{mPwd}, #{mName}, #{mBirth}, #{mEmail}, #{mPhone}, #{mAddress}, #{mArea}, #{mRelation},
+				#{mCar},#{mAccount},SYSDATE,NULL,#{mOriginalFilename},#{mRenameFilename},#{mEmailStatus},'J',#{mAddressCode})
+	</insert>
+	
+	<select id="memberLogin" parameterType="Member" resultMap="memberResultSet">
+		SELECT *
+		FROM MEMBER
+		WHERE M_ID = #{mId}
+	</select>
+	<update id="updatePwd2" parameterType="Member"> 
+		UPDATE MEMBER SET M_PWD = #{mPwd} WHERE M_ID = #{mId} 
+	</update>
+	
+	
+	
+	
+	   
+   <!-- 상인 -->
+   <!-- 회원용 meesage리스트 맵 -->
+   <resultMap id="msgMap" type="MemberMessage">
+      <id property="mmCode" column="MMS_CODE" />
+      
+      <result property="mmTitle" column="MMS_TITLE" />
+      <result property="mmWriter" column="WRITER" />
+      <result property="mmReceiver" column="RECEIVER" />
+      <result property="mmContent" column="MMS_CONTENT" />
+      <result property="mmDate" column="MMS_DATE" />
+      <result property="receiverStatus" column="RECEIVER_STATUS" />
+      <result property="writerStatus" column="WRITER_STATUS" />
+   </resultMap>
+   
+   <resultMap id="memoMap" type="MemberMemo">
+      <id property="mmeCode" column="MME_CODE" />
+      
+      <result property="mmeWriter" column="MME_WRITER" />
+      <result property="mmeContent" column="MME_CONTENT" />
+      <result property="mmeDate" column="MME_DATE" />
+      <result property="mmeStatus" column="MME_STATUS" />
+   </resultMap>
+   
+   <resultMap id="boardMapSP" type="Board">
+      <id property="b_code" column="B_CODE" />
+      
+      <result property="b_title" column="B_TITLE" />
+   </resultMap>
+   
+   <resultMap id="boardMap" type="Board">
+      <id property="b_code" column="B_CODE"/>
+      
+      <result property="m_id" column="M_ID"/>
+      <result property="b_title" column="B_TITLE"/>
+      <result property="b_content" column="B_CONTENT"/>
+      <result property="b_count" column="B_COUNT"/>
+      <result property="b_status" column="B_STATUS"/>
+      <result property="b_name" column="B_NAME"/>
+      <result property="b_create_date" column="B_CREATE_DATE"/>
+      <result property="b_mdify_date" column="B_MDIFY_DATE"/>
+      <result property="orignal_filename" column="ORIGINAL_FILENAME"/>
+      <result property="rename_filename" column="RENAME_FILENAME"/>
+      <result property="b_category" column="B_CATEGORY"/>
+   </resultMap>
+   
+   <resultMap id="replyMap" type="MemberReply">
+      <id property="rCode" column="R_CODE"/>
+      <result property="bCode" column="B_CODE"/>
+      <result property="mId" column="M_ID"/>
+      <result property="rContent" column="R_CONTENT"/>
+      <result property="rStatus" column="R_STATUS"/>
+      <result property="rCreateDate" column="R_CREATE_DATE"/>
+      <result property="rModifyDate" column="R_MODIFY_DATE"/>
+      <result property="bContent" column="B_CONTENT" />
+      <result property="bName" column="B_NAME" />
+      <result property="bTitle" column="B_TITLE" />
+   </resultMap> 
+   
+   
+   <resultMap id="readingRoomMap" type="ReadingRoom">
+      <id property="reaReCode" column="REA_RE_CODE"/>
+      <result property="mCode" column="M_CODE"/>
+      <result property="reaReDate" column="REA_RE_DATE"/>
+      <result property="reaEndDate" column="REA_END_DATE"/>
+      <result property="reaSeat" column="REA_SEAT"/>
+      <result property="reaStatus" column="REA_STATUS"/>
+   </resultMap>   
+
+   <resultMap id="gymMap" type="Gym">
+      <id property="gymReCode" column="GYM_RE_CODE"/>
+      <result property="mCode" column="M_CODE"/>
+      <result property="gymReSt" column="GYM_RE_ST"/>
+      <result property="gymReEnd" column="GYM_RE_END"/>
+      <result property="gymStatus" column="GYM_STATUS"/>
+   </resultMap>
+   
+   <resultMap id="reserveMap" type="MemberReserve">
+      <id property="mrCode" column="MR_CODE" />
+      <result property="mrReserver" column="MR_RESERVER" />
+      <result property="cvCode" column="CV_CODE" />
+      <result property="cvName" column="CV_NAME" />
+      <result property="mrContent" column="MR_CONTENT" />
+      <result property="startDate" column="START_DATE" />
+      <result property="endDate" column="END_DATE" />
+      <result property="mrStatus" column="MR_STATUS" />
+   </resultMap>   
+   
+   <resultMap id="quesMap" type="BulletinBoard">
+      <id property="bbCode" column="BB_CODE"/>
+      <result property="mCode" column="M_CODE"/>
+      <result property="bbCategory" column="BB_CATEGORY"/>
+      <result property="bbTitle" column="BB_TITLE"/>
+      <result property="bbContent" column="BB_CONTENT"/>
+      <result property="bbDcategory" column="BB_DCATEGORY"/>
+      <result property="bbAnswer" column="BB_ANSWER"/>
+      <result property="bbStatus" column="BB_STATUS"/>
+      <result property="bbOriginName" column="BB_ORIGINNAME"/>
+      <result property="bbReName" column="BB_RENAME"/>
+      <result property="bbCreateDate" column="BB_CREATEDATE"/>
+      <result property="bbAnwDate" column="BB_ANWDATE"/>
+   </resultMap>
+   
+   <resultMap id="memberCostMap" type="MemberCost">
+      <result property="insertDate" column="INSERT_DATE" />
+      <result property="gasTax" column="GASTAX" />
+      <result property="waterTax" column="WATERTAX" />
+      <result property="electTax" column="ELECTTAX" />
+      <result property="apCost" column="APCOST" />
+   </resultMap>
+   
+   <resultMap id="deliveryListSet" type="Delivery">
+      <id property="deCode" column="DE_CODE"/>
+      <result property="apName" column="AP_CODE"/>
+      <result property="deWriter" column="DE_WRITER"/>
+      <result property="deHousehold" column="DE_HOUSEHOLD"/>
+      <result property="reciever" column="DE_RECIEVER"/>
+      <result property="deCreateDate" column="DE_CREATE_DATE"/>
+      <result property="deRecieveDate" column="DE_RECIEVE_DATE"/>
+      <result property="deStatus" column="DE_STATUS"/>
+   </resultMap>
+   
+   <resultMap id="memberNoticeMap" type="MemberNotice">
+      <id property="mncCode" column="MNC_CODE" />
+      
+      <result property="categoryCode" column="CATEGORY_CODE" />
+      <result property="categoryName" column="CATEGORY_NAME" />
+      <result property="mncCreateDate" column="MNC_CREATE_DATE" />
+      <result property="mncStatus" column="MNC_STATUS" />
+   </resultMap>
+
+   <resultMap id="guestRoomMap" type="GuestRoom">
+      <id property="guerReCode" column="GUER_RE_CODE"/>
+      <result property="mCode" column="M_CODE"/>
+      <result property="guerRoom" column="GUER_ROOM"/>
+      <result property="guerReDate" column="GUER_RE_DATE"/>
+      <result property="guerReStatus" column="GUER_RE_STATUS"/>
+   </resultMap>
+
+   <!-- 201013 13:00 김상인 -->
+   <update id="updatePwd" parameterType="Member">
+      UPDATE MEMBER
+      SET M_PWD = #{mPwd}
+      WHERE M_CODE = #{mCode}
+   </update>
+   
+   <delete id="deleteMember" parameterType="string">
+      UPDATE MEMBER
+      SET M_STATUS = 'N'
+      WHERE M_CODE = #{mCode}
+   </delete>
+   
+   
+   <!-- 쪽지 관련 sql -->
+   <select id="getWriteMsgCount" parameterType="string" resultType="_int">
+      SELECT COUNT(*)
+      FROM MEMBER_MESSAGE
+      WHERE MMS_WRITER = #{mCode} AND WRITER_STATUS = 'Y'
+   </select>
+
+   <select id="getReceiveMsgCount" parameterType="string" resultType="_int">
+      SELECT COUNT(*)
+      FROM MEMBER_MESSAGE
+      WHERE MMS_RECEIVER = #{mCode} AND RECEIVER_STATUS = 'Y'
+   </select>
+   
+   <select id="searchReceiveMsgCount" parameterType="map" resultType="_int">
+      SELECT COUNT(*)
+      FROM MEMBER_MESSAGE
+      <where>
+         MMS_RECEIVER = #{mCode} AND RECEIVER_STATUS = 'Y'
+      
+         <if test="sc.all != null">
+            AND (MMS_TITLE LIKE '%' || #{sc.all} || '%') 
+            OR (MMS_WRITER LIKE '%' || #{sc.all} || '%')
+            OR (MMS_CONTENT LIKE '%' || #{sc.all} || '%')
+         </if>
+         <if test="sc.writer != null">
+            AND MMS_WRITER LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND MMS_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND MMS_CONTENT LIKE '%' || #{sc.content} || '%'
+         </if>
+      </where>
+   </select>
+   
+   <select id="searchWriteMsgCount" parameterType="map" resultType="_int">
+      SELECT COUNT(*)
+      FROM MEMBER_MESSAGE
+      <where>
+         MMS_WRITER = #{mCode} AND WRITER_STATUS = 'Y'
+      
+         <if test="sc.all != null">
+            AND (MMS_TITLE LIKE '%' || #{sc.all} || '%') 
+            OR (MMS_RECEIVER LIKE '%' || #{sc.all} || '%')
+            OR (MMS_CONTENT LIKE '%' || #{sc.all} || '%')
+         </if>
+         <if test="sc.writer != null">
+            AND MMS_RECEIVER LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND MMS_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND MMS_CONTENT LIKE '%' || #{sc.content} || '%'
+         </if>
+      </where>
+   </select>   
+      
+   <select id="getMyMsg" parameterType="string" resultMap="msgMap">
+      <![CDATA[
+        SELECT *
+        FROM MY_MSG_VIEW
+        WHERE MMS_RECEIVER = #{mCode} AND ROWNUM <= 8
+      ]]>
+   </select>
+   
+   <select id="getMyMemo" parameterType="string" resultMap="memoMap">
+      <![CDATA[
+      SELECT *
+      FROM MY_MEMO_VIEW
+      WHERE MME_WRITER = #{mCode} AND ROWNUM <= 8
+      ]]>
+   </select>
+   
+   <select id="getWriteMsg" parameterType="string" resultMap="msgMap">
+      SELECT MMS_CODE, MMS_TITLE, WRITER, RECEIVER, MMS_CONTENT, MMS_DATE
+      FROM MMS_VIEW
+      WHERE WRITER_CODE = #{mCode} AND WRITER_STATUS = 'Y'
+      ORDER BY ROWNUM DESC
+   </select>
+   
+   <select id="getReceiveMsg" parameterType="string" resultMap="msgMap">
+      SELECT MMS_CODE, MMS_TITLE, WRITER, RECEIVER, MMS_CONTENT, MMS_DATE
+      FROM MMS_VIEW
+      WHERE RECEIVER_CODE = #{mCode} AND RECEIVER_STATUS = 'Y'
+      ORDER BY ROWNUM DESC
+   </select>
+   
+   <select id="searchReceiveMsg" parameterType="map" resultMap="msgMap">
+      SELECT MMS_CODE, MMS_TITLE, WRITER, RECEIVER, MMS_CONTENT, MMS_DATE
+      FROM MMS_VIEW
+      <where>
+         RECEIVER_CODE = #{mCode} AND RECEIVER_STATUS = 'Y'
+      
+         <if test="sc.all != null">
+            AND ((MMS_TITLE LIKE '%' || #{sc.all} || '%') 
+            OR (WRITER LIKE '%' || #{sc.all} || '%')
+            OR (MMS_CONTENT LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND WRITER LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND MMS_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND MMS_CONTENT LIKE '%' || #{sc.content} || '%'
+         </if>   
+      </where>
+      ORDER BY ROWNUM DESC
+   </select>
+
+   <select id="searchWriteMsg" parameterType="map" resultMap="msgMap">
+      SELECT MMS_CODE, MMS_TITLE, WRITER, RECEIVER, MMS_CONTENT, MMS_DATE
+      FROM MMS_VIEW
+      <where>
+         WRITER_CODE = #{mCode} AND WRITER_STATUS = 'Y'
+      
+         <if test="sc.all != null">
+            AND ((MMS_TITLE LIKE '%' || #{sc.all} || '%') 
+            OR (RECEIVER LIKE '%' || #{sc.all} || '%')
+            OR (MMS_CONTENT LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND RECEIVER LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND MMS_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND MMS_CONTENT LIKE '%' || #{sc.content} || '%'
+         </if>   
+      </where>
+      ORDER BY ROWNUM DESC
+   </select>
+   
+   
+   <select id="getMemoList" parameterType="string" resultMap="memoMap">
+      SELECT *
+      FROM MEMBER_MEMO
+      WHERE MME_WRITER = #{mCode} AND MME_STATUS = 'Y'
+      ORDER BY ROWNUM DESC
+   </select>
+   
+   <insert id="insertMemo" parameterType="map">
+      INSERT INTO MEMBER_MEMO
+      VALUES (SEQ_MME_CODE.NEXTVAL, #{mCode}, #{memoContent}, SYSDATE, DEFAULT)
+   </insert>
+   
+   <update id="deleteMemo" parameterType="string">
+      UPDATE MEMBER_MEMO
+      SET MME_STATUS = 'N'
+      WHERE MME_CODE = #{mmeCode}
+   </update>
+   
+   <update id="updateMemo" parameterType="MemberMemo">
+      UPDATE MEMBER_MEMO
+      SET MME_CONTENT = #{mmeContent}, MME_DATE = SYSDATE
+      WHERE MME_CODE = #{mmeCode}
+   </update>
+   
+   <select id="checkMember" parameterType="string" resultType="string">
+      SELECT M_CODE
+      FROM MEMBER
+      WHERE M_ID = #{mmReceiver}
+   </select>
+
+   <insert id="insertMsg" parameterType="MemberMessage">
+      INSERT INTO MEMBER_MESSAGE
+      VALUES (SEQ_MMS_CODE.NEXTVAL, #{mmTitle}, #{mmWriter}, #{mmReceiver}, #{mmContent}, SYSDATE, DEFAULT, DEFAULT)
+   </insert>
+   
+   <select id="getMemberMsg" parameterType="string" resultMap="msgMap">
+      SELECT *
+      FROM MMS_VIEW
+      WHERE MMS_CODE = #{mmCode}
+   </select> 
+   
+   <delete id="deleteMsg" parameterType="map">
+      UPDATE MEMBER_MESSAGE
+      <set>
+         <if test="check == 1">
+            RECEIVER_STATUS = 'N'
+         </if>
+         <if test="check == 2">
+            WRITER_STATUS = 'N'
+         </if>
+      </set>
+      WHERE MMS_CODE = #{mmCode}
+   </delete>
+
+   <select id="getMyAddress" parameterType="string" resultType="string">
+      SELECT AP_ADDRESS
+      FROM APARTMENT
+      WHERE AP_CODE = #{apCode}
+   </select>
+   
+   <update id="updateMember" parameterType="Member">
+      UPDATE MEMBER
+      SET M_CAR = #{mCar}, M_ACCOUNT = #{mAccount}, M_PHONE = #{mPhone}, M_EMAIL = #{mEmail}
+      WHERE M_CODE = #{mCode}
+   </update>
+
+   <select id="getMyBoard" parameterType="string" resultMap="boardMapSP">
+        SELECT *
+        FROM MY_BOARD_VIEW
+        WHERE M_ID = #{mId} AND ROWNUM <![CDATA[<=]]> 4
+   </select>
+   
+   <select id="getMyBoardCount" parameterType="string" resultType="_int">
+      SELECT COUNT(*)
+      FROM BOARD
+      WHERE M_ID = #{mId}
+   </select>
+   
+   <select id="getMyBoardList" parameterType="string" resultMap="boardMap">
+      SELECT *
+      FROM BOARD
+      WHERE M_ID = #{mId} AND B_STATUS = 'Y'
+      ORDER BY ROWNUM DESC
+   </select>
+   
+   <select id="serachMyBoardCount" parameterType="map" resultType="_int">
+      SELECT COUNT(*)
+      FROM BOARD
+      <where>
+         M_ID = #{m_id} AND B_STATUS = 'Y'
+      
+         <if test="sc.all != null">
+            AND ((B_TITLE LIKE '%' || #{sc.all} || '%') 
+            OR (B_NAME LIKE '%' || #{sc.all} || '%')
+            OR (B_CONTENT LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND B_NAME LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND B_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND B_CONTENT LIKE '%' || #{sc.content} || '%'            
+         </if>
+      </where>
+   </select>
+   
+   <select id="searchMyBoard" parameterType="map" resultMap="boardMap">
+      SELECT *
+      FROM BOARD
+      <where>
+         M_ID = #{m_id} AND B_STATUS = 'Y'
+      
+         <if test="sc.all != null">
+            AND ((B_TITLE LIKE '%' || #{sc.all} || '%') 
+            OR (B_NAME LIKE '%' || #{sc.all} || '%')
+            OR (B_CONTENT LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND B_NAME LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND B_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND B_CONTENT LIKE '%' || #{sc.content} || '%'            
+         </if>
+      </where>
+      ORDER BY ROWNUM DESC
+   </select>
+   
+   <select id="getMyReply" parameterType="string" resultMap="replyMap">
+        SELECT *
+        FROM MY_REPLY_VIEW
+        WHERE M_ID = #{mId} AND ROWNUM <![CDATA[<=]]> 4
+   </select>
+   
+   <select id="getMyReplyCount" parameterType="string" resultType="_int">
+      SELECT COUNT(*)
+      FROM BOARD_REPLY
+      WHERE M_ID = #{mId} AND R_STATUS = 'Y'
+   </select>
+   
+   <select id="getMyReplyList" parameterType="map" resultMap="replyMap">
+      SELECT *
+      FROM MY_REPLY_VIEW
+      WHERE M_ID = '${mId}'
+   </select>
+   
+   <select id="searchMyReplyCount" parameterType="map" resultType="_int">
+      SELECT COUNT(*)
+      FROM MY_REPLY_VIEW
+      <where>
+         M_ID = #{mId}
+      
+         <if test="sc.all != null">
+            AND ((R_CONTENT LIKE '%' || #{sc.all} || '%') 
+            OR (B_CONTENT LIKE '%' || #{sc.all} || '%')
+            OR (B_TITLE LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND R_CONTENT LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND B_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND B_CONTENT LIKE '%' || #{sc.content} || '%'            
+         </if>
+      </where>
+   </select>
+   
+   <select id="searchMyReply" parameterType="map" resultMap="replyMap">
+      SELECT *
+      FROM MY_REPLY_VIEW
+      <where>
+         M_ID = #{mId}
+      
+         <if test="sc.all != null">
+            AND ((R_CONTENT LIKE '%' || #{sc.all} || '%') 
+            OR (B_CONTENT LIKE '%' || #{sc.all} || '%')
+            OR (B_TITLE LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND R_CONTENT LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND B_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND B_CONTENT LIKE '%' || #{sc.content} || '%'            
+         </if>
+      
+      </where>
+   </select>
+   
+   
+   
+   
+   
+   <!-- 200126 상인 추가 -->
+   <select id="getReadingRoom" resultMap="readingRoomMap">
+      SELECT *
+      FROM (SELECT *
+            FROM READINGROOM
+              ORDER BY ROWNUM DESC)
+      WHERE ROWNUM = 1
+   </select>
+   
+   <select id="getGym" resultMap="gymMap">
+      SELECT *
+      FROM (SELECT *
+            FROM GYM
+              ORDER BY ROWNUM DESC)
+      WHERE ROWNUM = 1
+   </select>
+
+   <select id="getGuestRoom" resultMap="guestRoomMap">
+      SELECT *
+      FROM (SELECT *
+            FROM GUESTROOM
+              ORDER BY ROWNUM DESC)
+      WHERE ROWNUM = 1
+      
+   </select>
+   
+   <insert id="insertMyReserve" parameterType="MemberReserve">
+      INSERT INTO MEMBER_RESERVE
+      VALUES (SEQ_MR_CODE.NEXTVAL, #{mrReserver}, #{cvCode}, #{cvName}, #{mrContent}, #{startDate}, #{endDate}, DEFAULT)
+   </insert>
+   
+   <select id="getMyReserveList" parameterType="string" resultMap="reserveMap">
+      SELECT *
+      FROM (SELECT *
+              FROM MEMBER_RESERVE
+              ORDER BY MR_CODE DESC)
+      WHERE MR_RESERVER = #{mCode} AND ROWNUM <![CDATA[<=]]> 4  
+   </select>
+   
+   <select id="getMemberReserve" parameterType="string" resultMap="reserveMap">
+      SELECT *
+      FROM MEMBER_RESERVE
+      WHERE MR_CODE = #{mrCode}
+   </select>
+   
+   <delete id="cancelReadingRoom" parameterType="string">
+      UPDATE READINGROOM
+      SET REA_END_DATE = SYSDATE, REA_STATUS = 'Y'
+      WHERE REA_RE_CODE = #{cvCode}
+   </delete>
+   
+   <delete id="cancelGym" parameterType="string">
+      UPDATE GYM
+      SET GYM_STATUS = 'Y'
+      WHERE GYM_RE_CODE = #{cvCode}
+   </delete>
+   
+   <delete id="cancelGuestRoom" parameterType="string">
+      UPDATE GUESTROOM
+      SET GUER_RE_STATUS = 'Y'
+      WHERE GUER_RE_CODE = #{cvCode}
+   </delete>
+   
+   <delete id="cancelReserve" parameterType="string">
+      UPDATE MEMBER_RESERVE
+      SET END_DATE = SYSDATE, MR_STATUS = 'N'
+      WHERE MR_CODE = #{mrCode}
+   </delete>
+   
+   <select id="getReserveList" parameterType="string" resultMap="reserveMap">
+      SELECT *
+      FROM (SELECT *
+              FROM MEMBER_RESERVE
+              ORDER BY MR_CODE DESC)
+      WHERE MR_RESERVER = #{mCode} 
+   </select>
+   
+   <select id="getReserveCount" parameterType="string" resultType="_int">
+      SELECT COUNT(*)
+      FROM (SELECT *
+              FROM MEMBER_RESERVE
+              ORDER BY ROWNUM DESC)
+      WHERE MR_RESERVER = #{mCode} 
+   </select>
+   
+   <select id="getCetegoryReserveCount" parameterType="map" resultType="_int">
+      SELECT COUNT(*)
+      FROM MEMBER_RESERVE
+      WHERE CV_NAME = #{category} AND MR_RESERVER = #{mCode}
+   </select>
+   
+   <select id="categoryReserveList" parameterType="map" resultMap="reserveMap">
+      SELECT *
+      FROM (SELECT *
+          FROM MEMBER_RESERVE
+          ORDER BY ROWNUM DESC)
+      WHERE MR_RESERVER = #{mCode} AND CV_NAME = #{category}      
+   </select>
+   
+   <select id="getMyQuesList" parameterType="string" resultMap="quesMap">
+      SELECT *
+      FROM (SELECT *
+              FROM BULLETINBOARD
+              ORDER BY BB_CODE DESC)
+      WHERE M_CODE = #{mCode} AND ROWNUM <![CDATA[<=]]> 4    
+   </select>
+   
+   <select id="getQuestion" parameterType="string" resultMap="quesMap">
+      SELECT *
+      FROM BULLETINBOARD
+      WHERE BB_CODE = #{bbCode}
+   </select>
+   
+   <select id="getQuestionListCount" parameterType="string" resultType="_int">
+      SELECT COUNT(*)
+      FROM BULLETINBOARD
+      WHERE M_CODE = #{mCode}
+   </select>
+   
+   <select id="getQuestionList" parameterType="string" resultMap="quesMap">
+      SELECT *
+      FROM (SELECT *
+              FROM BULLETINBOARD
+              ORDER BY ROWNUM DESC)
+      WHERE M_CODE = #{mCode}    
+   </select>
+   
+   <select id="searchMyQuesCount" parameterType="map" resultType="_int">
+      SELECT COUNT(*)
+      FROM BULLETINBOARD
+      <where>
+         M_CODE = #{mCode}
+         
+         <if test="sc.all != null">
+            AND ((BB_CATEGORY LIKE '%' || #{sc.all} || '%') 
+            OR (BB_CONTENT LIKE '%' || #{sc.all} || '%')
+            OR (BB_TITLE LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND BB_CATEGORY LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND BB_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND BB_CONTENT LIKE '%' || #{sc.content} || '%'            
+         </if>
+      </where>
+   </select>
+   
+   <select id="searchMyQues" parameterType="map" resultMap="quesMap">
+      SELECT *
+      FROM (SELECT *
+              FROM BULLETINBOARD
+              ORDER BY ROWNUM DESC)
+      <where>
+         M_CODE = #{mCode}
+         
+         <if test="sc.all != null">
+            AND ((BB_CATEGORY LIKE '%' || #{sc.all} || '%') 
+            OR (BB_CONTENT LIKE '%' || #{sc.all} || '%')
+            OR (BB_TITLE LIKE '%' || #{sc.all} || '%'))
+         </if>
+         <if test="sc.writer != null">
+            AND BB_CATEGORY LIKE '%' || #{sc.writer} || '%'
+         </if>
+         <if test="sc.title != null">
+            AND BB_TITLE LIKE '%' || #{sc.title} || '%'
+         </if>
+         <if test="sc.content != null">
+            AND BB_CONTENT LIKE '%' || #{sc.content} || '%'            
+         </if>
+      </where>
+   </select>
+   
+   <select id="getMyApCost" parameterType="map" resultType="_int">
+<!--       SELECT SUM/COUNT 
+      FROM 
+         (SELECT NVL(SUM(EX_PRICE), 0) SUM 
+         FROM EXPENSE 
+         WHERE SUBSTR(EX_DATE, 1, 4) = SUBSTR(#{toDay}, 1, 4) AND SUBSTR(EX_DATE, 4, 2) = SUBSTR(#{toDay}, 4, 2)), 
+         (SELECT COUNT(*) COUNT 
+         FROM MEMBER 
+         WHERE SUBSTR(M_ADDRESS, 1, 3) = SUBSTR(#{mAddress }, 1, 3)) -->
+         SELECT (NVL(GASTAX, 0) + NVL(WATERTAX, 0) + NVL(ELECTTAX, 0) + NVL(APCOST, 0)) APCOST
+         FROM 
+             (SELECT SUBSTR(HT_CREATE_DATE, 1, 5) INSERT_DATE, GASTAX
+             FROM HOMETAX HT
+             JOIN GASBILL_VIEW GV ON(HT.HT_CODE = GV.HT_CODE)
+             WHERE (AP_CODE = #{loginUser.apCode}) 
+                AND (HT_ADDRESS = #{loginUser.mAddress})
+                AND (HT_TARGET = #{loginUser.mName})
+                   AND (SUBSTR(HT_CREATE_DATE, 1, 5) = SUBSTR(#{toDay}, 1, 5)))
+                   
+         FULL Outer Join
+             (SELECT SUBSTR(HT_CREATE_DATE, 1, 5) INSERT_DATE, WATERTAX
+             FROM HOMETAX HT
+             JOIN WATERBILL_VIEW WV ON(HT.HT_CODE = WV.HT_CODE)
+             WHERE (AP_CODE = #{loginUser.apCode}) 
+                AND (HT_ADDRESS = #{loginUser.mAddress})
+                AND (HT_TARGET = #{loginUser.mName})
+                   AND (SUBSTR(HT_CREATE_DATE, 1, 5) = SUBSTR(#{toDay}, 1, 5))) USING(INSERT_DATE)
+         FULL Outer Join
+             (SELECT SUBSTR(HT_CREATE_DATE, 1, 5) INSERT_DATE, ELECTTAX
+             FROM HOMETAX HT
+             JOIN ELECBILL_VIEW EV ON(HT.HT_CODE = EV.HT_CODE)
+             WHERE (AP_CODE = #{loginUser.apCode}) 
+                AND (HT_ADDRESS = #{loginUser.mAddress})
+                AND (HT_TARGET = #{loginUser.mName})
+                   AND (SUBSTR(HT_CREATE_DATE, 1, 5) = SUBSTR(#{toDay}, 1, 5))) USING(INSERT_DATE)
+         FULL OUTER JOIN
+             (SELECT INSERT_DATE, SUM/COUNT APCOST
+             FROM
+                 (SELECT SUBSTR(EX_DATE,1, 5) INSERT_DATE, NVL(SUM(EX_PRICE), 0) SUM 
+                 FROM EXPENSE
+                 GROUP BY SUBSTR(EX_DATE,1, 5)),
+                 (SELECT COUNT(*) COUNT 
+                 FROM MEMBER 
+                 WHERE (SUBSTR(M_ADDRESS, 1, 3) = SUBSTR(#{loginUser.mAddress}, 1, 3)) AND M_STATUS = 'Y')
+               WHERE INSERT_DATE = SUBSTR(#{toDay}, 1, 5)) USING(INSERT_DATE)      
+      </select> 
+   
+   
+   <select id="getMemberCostList" parameterType="map" resultMap="memberCostMap">
+      SELECT *
+      FROM 
+          (SELECT SUBSTR(HT_CREATE_DATE, 1, 5) INSERT_DATE, GASTAX
+          FROM HOMETAX HT
+          JOIN GASBILL_VIEW GV ON(HT.HT_CODE = GV.HT_CODE)
+          WHERE (AP_CODE = #{apCode}) 
+             AND (HT_ADDRESS = #{mAddress})
+             AND (HT_TARGET = #{mName})
+          ORDER BY INSERT_DATE)
+      FULL Outer Join
+          (SELECT SUBSTR(HT_CREATE_DATE, 1, 5) INSERT_DATE, WATERTAX
+          FROM HOMETAX HT
+          JOIN WATERBILL_VIEW WV ON(HT.HT_CODE = WV.HT_CODE)
+          WHERE (AP_CODE = #{apCode}) 
+             AND (HT_ADDRESS = #{mAddress})
+             AND (HT_TARGET = #{mName})
+          ORDER BY INSERT_DATE) USING(INSERT_DATE)
+      FULL Outer Join
+          (SELECT SUBSTR(HT_CREATE_DATE, 1, 5) INSERT_DATE, ELECTTAX
+          FROM HOMETAX HT
+          JOIN ELECBILL_VIEW EV ON(HT.HT_CODE = EV.HT_CODE)
+          WHERE (AP_CODE = #{apCode}) 
+             AND (HT_ADDRESS = #{mAddress})
+             AND (HT_TARGET = #{mName})
+          ORDER BY INSERT_DATE) USING(INSERT_DATE)
+      FULL OUTER JOIN
+          (SELECT INSERT_DATE, SUM/COUNT APCOST
+          FROM
+              (SELECT SUBSTR(EX_DATE,1, 5) INSERT_DATE, SUM(EX_PRICE) SUM
+              FROM EXPENSE
+              GROUP BY SUBSTR(EX_DATE,1, 5)),
+              (SELECT COUNT(*) COUNT 
+              FROM MEMBER 
+              WHERE (SUBSTR(M_ADDRESS, 1, 3) = SUBSTR(#{mAddress}, 1, 3)) AND M_STATUS = 'Y')
+          ORDER BY INSERT_DATE) USING(INSERT_DATE)
+      ORDER BY INSERT_DATE   
+   </select>
+   
+   <select id="getDelivery" resultMap="deliveryListSet">
+      SELECT *
+      FROM DELIVERY
+      WHERE ROWNUM = 1
+      ORDER BY DE_CODE DESC
+   </select>
+   
+   <insert id="insertMyDelivery" parameterType="map">
+      INSERT INTO MEMBER_NOTICE_CHECK
+      VALUES (SEQ_MNC_CODE.NEXTVAL, #{de.deCode}, #{categoryName}, SYSDATE, DEFAULT)
+   </insert>
+   
+   <select id="getMyNoticeCount" parameterType="Member" resultType="_int">
+      SELECT COUNT(*)
+      FROM DELIVERY
+      JOIN MEMBER_NOTICE_CHECK ON(DE_CODE = CATEGORY_CODE)
+      WHERE DE_RECIEVER = #{mName} AND DE_HOUSEHOLD = #{mAddress} AND MNC_STATUS = 'Y'   
+   </select>
+   
+   <select id="getMyNoticeListCount" parameterType="Member" resultType="_int">
+      SELECT COUNT(*)
+      FROM DELIVERY
+      JOIN MEMBER_NOTICE_CHECK ON(DE_CODE = CATEGORY_CODE)
+      WHERE DE_RECIEVER = #{mName} AND DE_HOUSEHOLD = #{mAddress}
+   </select>
+   
+   <select id="getMyNotice" parameterType="Member" resultMap="memberNoticeMap">
+      SELECT MNC_CODE, CATEGORY_CODE, CATEGORY_NAME, MNC_CREATE_DATE, MNC_STATUS
+      FROM DELIVERY
+      JOIN MEMBER_NOTICE_CHECK ON(DE_CODE = CATEGORY_CODE)
+      WHERE DE_RECIEVER = #{mName} AND DE_HOUSEHOLD = #{mAddress}
+      ORDER BY MNC_CREATE_DATE DESC
+   </select>
+   
+   <update id="checkNotice" parameterType="string">
+      UPDATE MEMBER_NOTICE_CHECK
+      SET MNC_STATUS = 'N'
+      WHERE MNC_CODE = #{mncCode}
+   </update>
+
+</mapper>

@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pra">
+	
+	<!-- 어드민을 끌고오는 맵 -->
+	<resultMap id="adminResultSet" type="Admin">
+		<id property="aCode" column="A_CODE"/>
+		<result property="comCode" column="COM_CODE"/>
+		<result property="aId" column="A_ID"/>
+		<result property="aPwd" column="A_PWD"/>
+		<result property="aName" column="A_NAME"/>
+		<result property="aBirth" column="A_BIRTH"/>
+		<result property="aEmail" column="A_EMAIL"/>
+		<result property="aPhone" column="A_PHONE"/>
+		<result property="aAddress" column="A_ADDRESS"/>
+		<result property="aDepartment" column="A_DEPARTMENT"/>
+		<result property="aEnrollDate" column="A_ENROLL_DATE"/>
+		<result property="aStatus" column="A_STATUS"/>
+		<result property="apCode" column="AP_CODE"/>
+	</resultMap>
+
+
+	<!-- 연차 맵 -->
+	<resultMap id="annualSet" type="Annual">
+		<id property="anCode" column="AN_CODE"/>
+		<result property="apCode" column="AP_CODE"/>
+		<result property="anName" column="AN_NAME"/>
+		<result property="anWriter" column="AN_WRITER"/>
+		<result property="anPwd" column="AN_PWD"/>
+		<result property="anStart" column="AN_START"/>
+		<result property="anEnd" column="AN_END"/>
+		<result property="anEtc" column="AN_ETC"/>
+		<result property="anStatus" column="AN_STATUS"/>
+	</resultMap>
+
+	<!-- 출근일지 맵 -->
+	<resultMap id="commuteJounalSet" type="Commute">
+		<id property="coCode" column="CO_CODE"/>
+		<result property="apName" column="AP_CODE"/>
+		<result property="coWorker" column="CO_WORKER"/>
+		<result property="coDate" column="CO_DATE"/>
+		<result property="coStart" column="CO_START"/>
+		<result property="coEnd" column="CO_END"/>
+		<result property="coStatus" column="CO_STATUS"/>
+	</resultMap>
+	
+	
+	<!-- 순찰정보 맵 -->
+	<resultMap id="patrolmSet" type="PatrolMain">
+		<id property="pmCode" column="PM_CODE"/>
+		<result property="apCode" column="AP_CODE"/>
+		<result property="pmFileName" column="PM_FILENAME"/>
+		<result property="pmPlace" column="PM_PLACE"/>
+		<result property="pmEtc" column="PM_ETC"/>
+		<result property="pmStatus" column="PM_STATUS"/>
+	</resultMap>
+	
+	<!-- 순찰일지 맵 -->
+	<resultMap id="patroljSet" type="PatrolJournal">
+		<id property="pjCode" column="PJ_CODE"/>
+		<result property="apCode" column="AP_CODE"/>
+		<result property="pjWriter" column="PJ_WRITER"/>
+		<result property="pjPwd" column="PJ_PWD"/>
+		<result property="pjCreateDate" column="PJ_CREATE_DATE"/>
+		<result property="pjStart" column="PJ_START"/>
+		<result property="pjEnd" column="PJ_END"/>
+		<result property="pjEtc" column="PJ_ETC"/>
+		<result property="pjStatus" column="PJ_STATUS"/>
+	</resultMap>
+	
+	<!-- 택배 맵 -->
+	<resultMap id="deliveryListSet" type="Delivery">
+		<id property="deCode" column="DE_CODE"/>
+		<result property="apName" column="AP_CODE"/>
+		<result property="deWriter" column="DE_WRITER"/>
+		<result property="deHousehold" column="DE_HOUSEHOLD"/>
+		<result property="reciever" column="DE_RECIEVER"/>
+		<result property="deCreateDate" column="DE_CREATE_DATE"/>
+		<result property="deRecieveDate" column="DE_RECIEVE_DATE"/>
+		<result property="deStatus" column="DE_STATUS"/>
+	</resultMap>
+	
+	<!-- 차량정보 맵 -->
+	<resultMap id="carDbSet" type="MEMBER">
+		<id property="mCode" column="M_CODE"/>
+		<result property="apCode" column="AP_CODE"/>
+		<result property="mCar" column="M_CAR"/>
+		<result property="mName" column="M_NAME"/>
+		<result property="mAddress" column="M_ADDRESS"/>
+	</resultMap>
+	
+	<!-- 사용량(세금) 맵 -->
+	<resultMap id="hometaxListSet" type="Hometax">
+		<id property="htCode" column="HT_CODE"/>
+		<result property="apCode" column="AP_CODE"/>
+		<result property="htAddress" column="HT_ADDRESS"/>
+		<result property="htTarget" column="HT_TARGET"/>
+		<result property="htName" column="HT_NAME"/>
+		<result property="htCreateDate" column="HT_CREATE_DATE"/>
+		<result property="htUsage" column="HT_USAGE"/>
+		<result property="htStatus" column="HT_STATUS"/>
+	</resultMap>
+	
+	<!-- 인수인계 맵 -->
+	<resultMap id="takingOverListSet" type="TakingOver">
+		<id property="taCode" column="TA_CODE"/>
+		<result property="apCode" column="AP_CODE"/>
+		<result property="taWriter" column="TA_WRITER"/>
+		<result property="taPwd" column="TA_PWD"/>
+		<result property="taContent" column="TA_CONTENT"/>
+		<result property="taCreateDate" column="TA_CREATE_DATE"/>
+		<result property="taModifyDate" column="TA_MODIFY_DATE"/>
+		<result property="taStatus" column="TA_STATUS"/>
+	</resultMap>
+	
+
+<!-- 메인화면 섹터 -->
+	<select id="AdSelectList" parameterType="Admin" resultMap="adminResultSet">
+		SELECT *
+		FROM ADMIN
+		WHERE A_DEPARTMENT = '${aDepartment}'
+		AND AP_CODE = '${apCode}'
+		AND A_STATUS = 'Y'
+		
+	</select>
+	
+	<select id="AnSelectList" parameterType="Annual" resultMap="annualSet">
+		<!-- SELECT *
+		FROM ANNUAL
+		WHERE AN_STATUS = 'Y'
+		ORDER BY ROWNUM DESC -->
+		<![CDATA[
+		SELECT *
+		FROM
+ 			(
+  			SELECT *
+  			FROM ANNUAL
+  			WHERE AN_STATUS = 'Y'
+  			ORDER BY ROWNUM DESC
+ 			)
+		WHERE ROWNUM <= 3
+		]]>
+	</select>
+	
+	<select id="TaSelectList" parameterType="TakingOver" resultMap="takingOverListSet">
+		<!-- SELECT *
+		FROM TAKING_OVER
+		WHERE TA_STATUS = 'Y'
+		ORDER BY ROWNUM DESC -->
+		<![CDATA[
+		SELECT *
+		FROM
+ 			(
+  			SELECT *
+  			FROM TAKING_OVER
+  			WHERE TA_STATUS = 'Y'
+  			ORDER BY ROWNUM DESC
+ 			)
+		WHERE ROWNUM <= 3
+		]]>
+	</select>
+
+
+<!-- 메인화면 섹터 -->
+
+
+<!-- 연차 섹터 -->	
+	<!-- 연차 select -->
+	
+	<select id="annualGetListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM ANNUAL
+		WHERE AN_STATUS='Y'
+	</select>
+	
+	<select id="annualSelect" parameterType="Annual" resultMap="annualSet">
+		SELECT *
+		FROM ANNUAL
+		WHERE AN_STATUS = 'Y'
+		AND AP_CODE = #{apCode}
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<!-- 연차 insert -->
+	<insert id="annualInsert" parameterType="Annual">
+		INSERT INTO ANNUAL
+		VALUES (SEQ_AN_CODE.NEXTVAL, #{apCode}, #{anName}, #{anWriter}, #{anPwd}, #{anStart}, #{anEnd}, #{anEtc}, DEFAULT)
+	</insert>
+	
+	<!-- 연차 update -->
+	<update id="annualUpdate" parameterType="Annual">
+		UPDATE ANNUAL
+		SET AN_NAME = #{anName}, AN_WRITER = #{anWriter}, AN_PWD = #{anPwd}, AN_START =  #{anStart}, AN_END = #{anEnd}, AN_ETC = #{anEtc}
+		WHERE AN_CODE = #{anCode}
+	</update>
+	
+	<!-- 연차 delete -->
+	<update id="annualDelete" parameterType="Annual">
+		UPDATE ANNUAL
+		SET AN_STATUS = 'N'
+		WHERE AN_CODE = #{anCode}
+	</update> 
+	
+<!-- 연차 섹터 -->	
+
+
+	
+<!-- 출/퇴근 섹터 -->	
+
+	<select id="commuteGetListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM COMMUTE
+		WHERE CO_STATUS='Y'
+	</select>
+	
+	<!-- 출근일지 select -->
+	<select id="commuteJounalSelect" parameterType="Commute" resultMap="commuteJounalSet">
+		SELECT CO_CODE, AP_CODE, CO_WORKER, CO_DATE, CO_START, CO_END, CO_STATUS
+		FROM COMMUTE
+		WHERE CO_STATUS = 'Y'
+		AND AP_CODE = #{apCode}
+		ORDER BY CO_START DESC
+	</select>
+	
+	<!-- 출근 insert -->
+	<insert id="commuteTowork" parameterType="Commute">
+		INSERT INTO COMMUTE
+		VALUES (SEQ_CO_CODE.NEXTVAL, #{apName}, #{coWorker}, SYSDATE, SYSDATE, NULL, NULL, DEFAULT)
+	</insert>
+	
+	<!-- 퇴근 update -->
+	<update id="commuteOffwork" parameterType="Commute">
+		UPDATE COMMUTE
+		SET CO_END = SYSDATE
+		WHERE CO_WORKER = #{coWorker}
+		AND AP_CODE = #{apName}
+		AND CO_END is NULL
+		AND CO_STATUS = 'Y'
+	</update>
+<!-- 출/퇴근 섹터 -->
+
+
+<!-- 순찰메인 섹터 -->
+	<!-- 순찰메인 select -->
+	
+	<select id="patrolMainSelect" parameterType="patrolMain" resultMap="patrolmSet">
+		SELECT *
+		FROM PATROL_MAIN
+		WHERE PM_STATUS = 'Y'
+		AND AP_CODE = #{apCode}
+	</select>
+	
+	<!-- 순찰메인 insert -->
+	<insert id="patrolMainInsert" parameterType="patrolMain">
+		INSERT INTO PATROL_MAIN
+		VALUES (SEQ_PM_CODE.NEXTVAL, #{apCode}, #{pmFileName}, #{pmPlace}, #{pmEtc}, DEFAULT)
+	</insert>
+	
+	<!-- 순찰메인 update -->
+	<!-- <update id="patrolMainUpdate" parameterType="patrolMain">
+		UPDATE PATROL_MAIN
+		SET PM_START = #{pjStart}, PJ_END = #{pjEnd}, PJ_ETC = #{pjEtc}, PJ_PWD = #{pjPwd}
+		WHERE PM_CODE = #{pjCode}
+	</update> -->
+	
+	<!-- 순찰메인 delete -->
+	<update id="patrolMainDelete" parameterType="string">
+		UPDATE PATROL_MAIN
+		SET PM_STATUS = 'N'
+		WHERE PM_CODE = #{pmCode}
+	</update>
+	
+	
+<!-- 순찰메인 섹터 -->
+
+<!-- 순찰일지 섹터 -->
+	<!-- 순찰일지 select -->
+
+	<select id="patrolJournalGetListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM PATROL_JOURNAL
+		WHERE PJ_STATUS='Y'
+	</select>
+	
+	<select id="patrolJournalSelect" parameterType="patrolJournal" resultMap="patroljSet">
+		SELECT *
+		FROM PATROL_JOURNAL
+		WHERE PJ_STATUS = 'Y'
+		AND AP_CODE = #{apCode}
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<!-- 순찰일지 insert -->
+	<insert id="patrolJournalInsert" parameterType="patrolJournal">
+		INSERT INTO PATROL_JOURNAL
+		VALUES (SEQ_PJ_CODE.NEXTVAL, #{apCode}, #{pjWriter}, #{pjPwd}, SYSDATE, #{pjStart}, #{pjEnd}, #{pjEtc}, DEFAULT)
+	</insert>
+	
+	<!-- 순찰일지 update -->
+	<update id="patrolJournalUpdate" parameterType="patrolJournal">
+		UPDATE PATROL_JOURNAL
+		SET PJ_START = #{pjStart}, PJ_END = #{pjEnd}, PJ_ETC = #{pjEtc}, PJ_PWD = #{pjPwd}
+		WHERE PJ_CODE = #{pjCode}
+	</update>
+	
+	<!-- 순찰일지 delete -->
+	<update id="patrolJournalDelete" parameterType="patrolJournal">
+		UPDATE PATROL_JOURNAL
+		SET PJ_STATUS = 'N'
+		WHERE PJ_CODE = #{pjCode}
+	</update>
+<!-- 순찰일지 섹터 -->		
+
+
+<!-- 택배 섹터 -->	
+
+	<select id="deliveryGetListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM DELIVERY
+	</select>
+
+	<select id="deliverySelect" parameterType="Delivery" resultMap="deliveryListSet">
+		SELECT *
+		FROM DELIVERY
+		WHERE AP_CODE = #{apCode}
+		ORDER BY 6 DESC
+	</select>
+	
+	<!-- 택배물 insert -->
+	<insert id="deliveryInsert" parameterType="Delivery">
+		INSERT INTO DELIVERY
+		VALUES (SEQ_DE_CODE.NEXTVAL, #{apName}, #{deWriter}, #{deHousehold}, #{reciever}, SYSDATE, NULL, DEFAULT)
+	</insert>
+	
+	<!-- 택배물 update -->
+	<update id="deliveryUpdate" parameterType="Delivery">
+		UPDATE DELIVERY
+		SET DE_RECIEVE_DATE = SYSDATE, DE_STATUS = 'N'
+		WHERE AP_CODE = #{apName}
+		AND DE_CODE = #{deCode}
+		AND DE_RECIEVE_DATE is NULL
+		AND DE_STATUS = 'Y'
+	</update>
+
+<!-- 택배 섹터 -->	
+
+<!-- 차량 섹터 시작 -->
+
+	<select id="carDbGetListCount" resultType="_int">
+		SELECT COUNT(*)
+	      FROM MEMBER
+	      WHERE M_STATUS = 'Y'
+	      AND M_CAR IS NOT NULL
+	</select>
+
+	<select id="carDbSelect" parameterType="MEMBER" resultMap="carDbSet">
+	      SELECT M_CODE, AP_CODE, M_NAME, M_ADDRESS, M_CAR
+	      FROM MEMBER
+	      WHERE M_STATUS = 'Y'
+	      AND AP_CODE = #{apCode}
+	      AND M_CAR IS NOT NULL
+	      ORDER BY ROWNUM DESC
+	   </select>
+
+<!-- 차량 섹터 -->
+
+<!-- 사용량(세금) 섹터 -->
+	<!-- 사용량 select -->
+	
+	<select id="hometaxGetListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM HOMETAX
+		WHERE HT_STATUS='Y'
+	</select>
+	
+	<select id="hometaxSelect" parameterType="Hometax" resultMap="hometaxListSet">
+		SELECT *
+		FROM HOMETAX
+		WHERE HT_STATUS = 'Y'
+		AND AP_CODE = #{apCode}
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<!-- 사용량 insert -->
+	<insert id="hometaxInsert" parameterType="Hometax">
+		INSERT INTO HOMETAX
+		VALUES (SEQ_HT_CODE.NEXTVAL, #{apCode}, #{htAddress}, #{htTarget}, #{htName}, SYSDATE, #{htUsage}, DEFAULT)
+	</insert>
+	
+	<!-- 사용량 update -->
+	<update id="hometaxUpdate" parameterType="Hometax">
+		UPDATE HOMETAX
+		SET HT_ADDRESS = #{htAddress}, HT_TARGET = #{htTarget}, HT_NAME = #{htName}, HT_USAGE = #{htUsage}
+		WHERE HT_CODE = #{htCode}
+	</update>
+	
+	<!-- 사용량 delete -->
+	<update id="hometaxDelete" parameterType="Hometax">
+		UPDATE HOMETAX
+		SET HT_STATUS = 'N'
+		WHERE HT_CODE = #{htCode}
+	</update>
+
+
+<!-- 사용량(세금) 섹터 -->	
+
+<!-- 인수인계 섹터 -->
+	<!-- 인수인계 select -->
+	
+	<select id="takingOverGetListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM TAKING_OVER
+		WHERE TA_STATUS='Y'
+	</select>
+	
+	<select id="takingOverSelect" parameterType="TakingOver" resultMap="takingOverListSet">
+		SELECT *
+		FROM TAKING_OVER
+		WHERE TA_STATUS = 'Y'
+		AND AP_CODE = #{apCode}
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<!-- 인수인계 insert -->
+ 	<insert id="takingOverInsert" parameterType="TakingOver">
+		INSERT INTO TAKING_OVER
+		VALUES (SEQ_TA_CODE.NEXTVAL, #{apCode}, #{taWriter}, #{taPwd}, #{taContent}, SYSDATE, NULL, DEFAULT)
+	</insert>
+	
+	<!-- 인수인계 update -->
+	<update id="takingOverUpdate" parameterType="TakingOver">
+		UPDATE TAKING_OVER
+		SET TA_CONTENT = #{taContent}, TA_PWD = #{taPwd}, TA_MODIFY_DATE = SYSDATE
+		WHERE TA_CODE = #{taCode}
+	</update>
+	
+	<!-- 인수인계 delete -->
+ 	<update id="takingOverDelete" parameterType="TakingOver">
+		UPDATE TAKING_OVER
+		SET TA_STATUS = 'N'
+		WHERE TA_CODE = #{taCode}
+	</update>
+
+
+<!-- 인수인계 섹터 -->
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gymMapper">
+	<resultMap id="gymResultSet" type="Gym">
+		<id property="gymReCode" column="GYM_RE_CODE"/>
+		<result property="mCode" column="M_CODE"/>
+		<result property="gymReSt" column="GYM_RE_ST"/>
+		<result property="gymReEnd" column="REA_RE_END"/>
+		<result property="gymStatus" column="GYM_STATUS"/>
+	</resultMap>
+	
+	<select id="searchGym" parameterType="string" resultType="_int">
+		SELECT COUNT(*)
+		FROM GYM
+		WHERE M_CODE = #{mCode} AND <![CDATA[to_date(GYM_RE_ST,'YYYY-MM-DD') = to_date(SYSDATE, 'YYYY-MM-DD')]]> AND  GYM_STATUS = 'N'
+	</select>
+	
+	<insert id="insertGym" parameterType="Gym">
+		INSERT INTO GYM
+		VALUES(SEQ_GYM_RE_CODE.NEXTVAL,#{gymReSt},#{gymReEnd},'N',#{mCode})
+	</insert>
+	
+	<select id="listGym" parameterType="string" resultType="_int">
+		SELECT COUNT(*)
+		FROM GYM
+		WHERE <![CDATA[to_CHAR(GYM_RE_END,'YYYY-MM-DD HH24')<= to_CHAR(SYSDATE +3/24, 'YYYY-MM-DD HH24')]]> AND 
+		<![CDATA[to_CHAR(GYM_RE_END,'YYYY-MM-DD HH24')> to_CHAR(SYSDATE , 'YYYY-MM-DD HH24')]]> AND  
+		<![CDATA[to_CHAR(GYM_RE_ST,'YYYY-MM-DD HH24')<= to_CHAR(SYSDATE, 'YYYY-MM-DD HH24')]]>  AND
+		GYM_STATUS = 'N'
+	</select>
+	
+	
+	
+
+
+
+</mapper>

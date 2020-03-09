@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="masterMapper">
+	<resultMap id="masterResultSet" type="Master">
+		<id property="maCode" column="MA_CODE"/>
+		<result property="maId" column="MA_ID"/>
+		<result property="maPwd" column="MA_PWD"/>
+		<result property="maName" column="MA_NAME"/>
+		<result property="maDept" column="MA_DEPT"/>
+		<result property="maLevel" column="MA_LEVEL"/>
+		<result property="maHireDate" column="MA_HIRE_DATE"/>
+		<result property="maLeaveDate" column="MA_LEAVE_DATE"/>
+		<result property="maOriginalFilename" column="MA_ORIGINAL_FILENAME"/>
+		<result property="maRenameFilename" column="MA_RENAME_FILENAME"/>
+		<result property="maMessage" column="MA_MESSAGE"/>
+		<result property="maStatus" column="MA_STATUS"/>
+	</resultMap>
+	
+	<resultMap id="MessageResultSet" type="Message">
+		<id property="meCode" column="ME_CODE"/>
+		<result property="meWriter" column="ME_WRITER"/>
+		<result property="meReceiver" column="ME_RECEIVER"/>
+		<result property="meContent" column="ME_CONTENT"/>
+		<result property="meWriteDate" column="ME_WRITE_DATE"/>
+		<result property="meStatus" column="ME_STATUS"/>
+	</resultMap>
+	
+	<resultMap id="memberResultSet" type="Member">
+		<id property="mCode" column="M_CODE"/>
+		<result property="apCode" column="AP_CODE"/>
+		<result property="mId" column="M_ID"/>
+		<result property="mPwd" column="M_PWD"/>
+		<result property="mName" column="M_NAME"/>
+		<result property="mBirth" column="M_BIRTH"/>
+		<result property="mEmail" column="M_EMAIL"/>
+		<result property="mPhone" column="M_PHONE"/>
+		<result property="mAddress" column="M_ADDRESS"/>
+		<result property="mArea" column="M_AREA"/>
+		<result property="mRelation" column="M_RELATION"/>
+		<result property="mCar" column="M_CAR"/>
+		<result property="mAccount" column="M_ACCOUNT"/>
+		<result property="mEnrollDate" column="M_ENROLLDATE"/>
+		<result property="mRefidCard" column="M_REFID_CARD"/>
+		<result property="mOriginalFilename" column="M_ORIGINAL_FILENAME"/>
+		<result property="mRenameFilename" column="M_RENAME_FILENAME"/>
+		<result property="mStatus" column="M_STATUS"/>
+		<result property="mEmailStatus" column="M_EMAIL_STATUS"/>
+		<result property="mAddressCode" column="M_ADDRESS_CODE"/>
+	</resultMap>
+	
+	<resultMap id="lookAroundResultSet" type="LookAround">
+		<result property="laYoutube" column="LA_YOUTUBE"/>
+		<result property="laPicture1" column="LA_PICTURE1"/>
+		<result property="laPicture2" column="LA_PICTURE2"/>
+	</resultMap>
+	
+	<resultMap id="masterMapResultSet" type="MasterMap">
+		<result property="mmName" column="MM_NAME"/>
+		<result property="mmXLocation" column="MM_X_LOCATION"/>
+		<result property="mmYLocation" column="MM_Y_LOCATION"/>
+	</resultMap>
+	
+	<resultMap id="applyResultSet" type="Apply">
+		<id property="appCode" column="APP_CODE"/>
+		<result property="appName" column="APP_NAME"/>
+		<result property="appPhone" column="APP_PHONE"/>
+		<result property="appManager" column="APP_MANAGER"/>
+		<result property="appContent" column="APP_CONTENT"/>
+		<result property="appDate" column="APP_DATE"/>
+		<result property="appStatus" column="APP_STATUS"/>
+	</resultMap>
+	
+	<resultMap id="adminResultSet" type="Admin">
+		<id property="aCode" column="A_CODE"/>
+		<result property="comCode" column="COM_CODE"/>
+		<result property="aId" column="A_ID"/>
+		<result property="aPwd" column="A_PWD"/>
+		<result property="aName" column="A_NAME"/>
+		<result property="aBirth" column="A_BIRTH"/>
+		<result property="aEmail" column="A_EMAIL"/>
+		<result property="aPhone" column="A_PHONE"/>
+		<result property="aAddress" column="A_ADDRESS"/>
+		<result property="aDepartment" column="A_DEPARTMENT"/>
+		<result property="aEnrollDate" column="A_ENROLL_DATE"/>
+		<result property="aStatus" column="A_STATUS"/>
+		<result property="apCode" column="AP_CODE"/>
+	</resultMap>
+	
+	<resultMap id="ecResultSet" type="EC">
+		<result property="ecMember18" column="EC_MEMBER18"/>
+		<result property="ecMember19" column="EC_MEMBER19"/>
+		<result property="ecMember20" column="EC_MEMBER20"/>
+		<result property="ecAdmin18" column="EC_ADMIN18"/>
+		<result property="ecAdmin19" column="EC_ADMIN19"/>
+		<result property="ecAdmin20" column="EC_ADMIN20"/>
+		<result property="ecApply18" column="EC_APPLY18"/>
+		<result property="ecApply19" column="EC_APPLY19"/>
+		<result property="ecApply20" column="EC_APPLY20"/>
+	</resultMap>
+	
+	<resultMap id="imResultSet" type="IM">
+		<result property="iMoney17" column="I_MONEY17"/>
+		<result property="iMoney18" column="I_MONEY18"/>
+		<result property="iMoney19" column="I_MONEY19"/>
+		<result property="iMoney20" column="I_MONEY20"/>
+	</resultMap>
+	
+	<resultMap id="aptResultSet" type="Apartment">
+		<result property="apCode" column="AP_CODE"/>
+		<result property="apAddress" column="AP_ADDRESS"/>
+	</resultMap>
+	
+	<resultMap id="incomeResultSet" type="Income">
+		<id property="iCode" column="I_CODE"/>
+		<result property="comCode" column="COM_CODE"/>
+		<result property="iDate" column="I_DATE"/>
+		<result property="iMoney" column="I_MONEY"/>
+		<result property="iStatus" column="I_STATUS"/>
+	</resultMap>
+	
+	<resultMap id="BcResultSet" type="BC">
+		<result property="bcBoard17" column="BC_BOARD17"/>
+		<result property="bcBoard18" column="BC_BOARD18"/>
+		<result property="bcBoard19" column="BC_BOARD19"/>
+		<result property="bcBoard20" column="BC_BOARD20"/>
+	</resultMap>
+	
+	<resultMap id="boardResultSet" type="Board">
+		<id property="b_code" column="B_CODE"/>
+		<result property="m_id" column="M_ID"/>
+		<result property="b_title" column="B_TITLE"/>
+		<result property="b_content" column="B_CONTENT"/>
+		<result property="b_count" column="B_COUNT"/>
+		<result property="b_status" column="B_STATUS"/>
+		<result property="b_name" column="B_NAME"/>
+		<result property="b_create_date" column="B_CREATE_DATE"/>
+		<result property="b_mdify_date" column="B_MDIFY_DATE"/>
+		<result property="orignal_filename" column="ORIGINAL_FILENAME"/>
+		<result property="rename_filename" column="RENAME_FILENAME"/>
+		<result property="b_category" column="B_CATEGORY"/>
+	</resultMap>
+	
+	<resultMap id="McResultSet" type="MC">
+		<result property="mcMember17" column="MC_MEMBER17"/>
+		<result property="mcMember18" column="MC_MEMBER18"/>
+		<result property="mcMember19" column="MC_MEMBER19"/>
+		<result property="mcMember20" column="MC_MEMBER20"/> 
+		<result property="mcAdmin17" column="MC_ADMIN17"/>
+		<result property="mcAdmin18" column="MC_ADMIN18"/>
+		<result property="mcAdmin19" column="MC_ADMIN19"/>
+		<result property="mcAdmin20" column="MC_ADMIN20"/>
+	</resultMap>
+	
+	<resultMap id="declarationResultSet" type="Board_Declaration">
+		<id property="bd_code" column="BD_CODE"/>
+		<result property="b_code" column="B_CODE"/>
+		<result property="m_id" column="M_ID"/>
+		<result property="bd_content" column="BD_CONTENT"/>
+		<result property="bd_status" column="BD_STATUS"/>
+		<result property="bd_create_date" column="BD_CREATE_DATE"/>
+		<result property="bd_category" column="BD_CATEGORY"/>
+	</resultMap>
+	
+	
+	<select id="loginMaster" parameterType="Master" resultMap="masterResultSet">
+			SELECT *
+			FROM MASTER
+			WHERE MA_ID = #{maId}
+			AND MA_PWD = #{maPwd}
+			AND MA_STATUS = 'Y'
+	</select>
+	
+	<update id="changePicture" parameterType="Master">
+		UPDATE MASTER
+		SET MA_ORIGINAL_FILENAME = #{ maOriginalFilename }, MA_RENAME_FILENAME = #{ maRenameFilename }
+		WHERE MA_ID = #{ maId }
+	</update>
+	
+	<insert id="messageWrite" parameterType="Message">
+		INSERT INTO MESSAGE VALUES(
+			SEQ_ME_CODE.NEXTVAL, #{ meWriter }, #{ meReceiver }, #{ meContent }, SYSDATE, DEFAULT
+		)
+	</insert>
+	
+	<select id="receiveListCount" parameterType="String" resultType="_int">
+		SELECT COUNT(*)
+		FROM MESSAGE
+		WHERE (ME_STATUS = 'Y' OR ME_STATUS = 'F')
+		AND ME_RECEIVER = #{ receiver }
+		
+	</select>
+	
+	<select id="selectReceiveList" parameterType="PageInfo" resultMap="MessageResultSet">
+		SELECT *
+		FROM MESSAGE
+		WHERE (ME_STATUS= 'Y' OR ME_STATUS ='F')
+		AND ME_RECEIVER = #{ receiver }
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="sendedListCount" parameterType="String" resultType="_int">
+		SELECT COUNT(*)
+		FROM MESSAGE
+		WHERE (ME_STATUS = 'Y' OR ME_STATUS = 'F') 
+		AND ME_WRITER = #{ writer }
+	</select>
+	
+	<select id="selectSendedList" parameterType="PageInfo" resultMap="MessageResultSet">
+		SELECT *
+		FROM MESSAGE
+		WHERE (ME_STATUS = 'Y' OR ME_STATUS = 'F')
+		AND ME_WRITER = #{ writer }
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="LockerListCount" parameterType="String" resultType="_int">
+		SELECT COUNT(*)
+		FROM MESSAGE
+		WHERE (ME_WRITER = #{ writer } OR ME_RECEIVER = #{ receiver })
+		AND ME_STATUS = 'L'
+	</select>
+	
+	<select id="selectLockerList" parameterType="PageInfo" resultMap="MessageResultSet">
+		SELECT * 
+		FROM MESSAGE
+		WHERE (ME_WRITER = #{ writer } OR ME_RECEIVER = #{ receiver })
+		AND ME_STATUS = 'L'
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<update id="messageStatusChange" parameterType="String">
+		UPDATE MESSAGE SET
+		ME_STATUS = 'F'
+		WHERE ME_CODE = #{ meCode }
+	</update>
+	
+	<select id="messageDetail" parameterType="String" resultMap="MessageResultSet">
+		SELECT * 
+		FROM MESSAGE
+		WHERE ME_CODE = #{ meCode }
+	</select>
+	
+	<update id="messageLock" parameterType="String">
+		UPDATE MESSAGE SET
+		ME_STATUS = 'L'
+		WHERE ME_CODE = #{ meCode }
+	</update>
+	
+	<update id="messageDelete" parameterType="String">
+		UPDATE MESSAGE SET
+		ME_STATUS = 'N'
+		WHERE ME_CODE = #{ meCode }
+	</update>
+	
+	<update id="messageCancelLock" parameterType="String">
+		UPDATE MESSAGE SET
+		ME_STATUS = 'F'
+		WHERE ME_CODE = #{ meCode }
+	</update>
+	
+	<select id="selectReceiveSearchCount" parameterType="SearchPageInfo" resultType="_int">
+		SELECT COUNT(*)
+		FROM MESSAGE
+		WHERE ME_RECEIVER = #{ receiver }
+		<if test="category == 'writer'">
+		AND ME_WRITER LIKE '%' || #{ keyword } || '%'
+		</if>
+		<if test="category == 'content'" >
+		AND ME_CONTENT LIKE '%' || #{ keyword } || '%'
+		</if>
+		AND (ME_STATUS = 'Y' OR ME_STATUS = 'F')
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="selectReceiveSearchList" parameterType="SearchPageInfo" resultMap="MessageResultSet">
+		SELECT *
+		FROM MESSAGE
+		WHERE ME_RECEIVER = #{ receiver }
+		<if test="category == 'writer'">
+		AND ME_WRITER LIKE '%' || #{ keyword } || '%'
+		</if>
+		<if test="category == 'content'" >
+		AND ME_CONTENT LIKE '%' || #{ keyword } || '%'
+		</if>
+		AND (ME_STATUS = 'Y' OR ME_STATUS = 'F')
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="selectSendedSearchCount" parameterType="SearchPageInfo" resultType="_int">
+		SELECT COUNT(*)
+		FROM MESSAGE
+		WHERE ME_WRITER = #{ writer }
+		<if test="category == 'receiver'">
+		AND ME_RECEIVER LIKE '%' || #{ keyword } || '%'
+		</if>
+		<if test="category == 'content'" >
+		AND ME_CONTENT LIKE '%' || #{ keyword } || '%'
+		</if>
+		AND (ME_STATUS = 'Y' OR ME_STATUS = 'F')
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="selectSendedSearchList" parameterType="SearchPageInfo" resultMap="MessageResultSet">
+		SELECT *
+		FROM MESSAGE
+		WHERE ME_WRITER = #{ writer }
+		<if test="category == 'receiver'">
+		AND ME_RECEIVER LIKE '%' || #{ keyword } || '%'
+		</if>
+		<if test="category == 'content'" >
+		AND ME_CONTENT LIKE '%' || #{ keyword } || '%'
+		</if>
+		AND (ME_STATUS = 'Y' OR ME_STATUS = 'F')
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="selectLockerSearchCount" parameterType="SearchPageInfo" resultType="_int">
+		SELECT COUNT(*)
+		FROM MESSAGE
+		WHERE (ME_WRITER = #{ writer } OR ME_RECEIVER = #{ writer })
+		<if test="category == 'writer'">
+		AND (ME_RECEIVER LIKE '%' || #{ keyword } || '%' OR ME_WRITER LIKE '%' || #{ keyword } || '%')
+		</if>
+		<if test="category == 'content'" >
+		AND ME_CONTENT LIKE '%' || #{ keyword } || '%'
+		</if>
+		AND ME_STATUS = 'L'
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="selectLockerSearchList" parameterType="SearchPageInfo" resultMap="MessageResultSet">
+		SELECT *
+		FROM MESSAGE
+		WHERE (ME_WRITER = #{ writer } OR ME_RECEIVER = #{ writer })
+		<if test="category == 'writer'">
+		AND (ME_RECEIVER LIKE '%' || #{ keyword } || '%' OR ME_WRITER LIKE '%' || #{ keyword } || '%')
+		</if>
+		<if test="category == 'content'" >
+		AND ME_CONTENT LIKE '%' || #{ keyword } || '%'
+		</if>
+		AND ME_STATUS = 'L'
+		ORDER BY ROWNUM DESC
+	</select>
+	
+	<select id="selectUserCheckList" resultMap="memberResultSet">
+		SELECT *
+		FROM MEMBER
+		WHERE M_STATUS = 'J'
+	</select>
+	
+	<select id="selectUserFailList" resultMap="memberResultSet">
+		SELECT *
+		FROM MEMBER
+		WHERE M_STATUS = 'F'
+	</select>
+	
+	<update id="userManageStop" parameterType="String">
+		UPDATE MEMBER SET M_STATUS = 'B'
+		WHERE M_CODE = #{ mCode }
+	</update>
+	
+	<update id="adminManageStop" parameterType="String">
+		UPDATE ADMIN SET A_STATUS = 'B'
+		WHERE A_CODE = #{ aCode }
+	</update>
+	
+	<update id="deleteFailList" parameterType="String">
+		UPDATE MEMBER SET M_STATUS = 'X'
+		WHERE M_CODE = #{ mCode }
+	</update>
+	
+	<select id="userCheckDetail" parameterType="String" resultMap="memberResultSet">
+		SELECT M_CODE, AP_ADDRESS AP_CODE, M_ID, M_PWD, M_NAME, M_BIRTH, M_EMAIL, M_PHONE, M_ADDRESS, M_AREA, M_RELATION, M_CAR, M_ACCOUNT, M_ENROLLDATE, M_REFID_CARD, M_ORIGINAL_FILENAME, M_RENAME_FILENAME, M_EMAIL_STATUS, M_STATUS, M_ADDRESS_CODE
+		FROM MEMBER
+        LEFT JOIN APARTMENT USING(AP_CODE)
+		WHERE M_CODE = #{ mCode }
+	</select>
+	
+	<update id="userJoinOk" parameterType="String">
+		UPDATE MEMBER SET M_STATUS = 'Y'
+		WHERE M_CODE = #{ mCode }
+	</update>
+	
+	<update id="userJoinFail" parameterType="String">
+		UPDATE MEMBER SET M_STATUS = 'F'
+		WHERE M_CODE = #{ mCode }
+	</update>
+	
+	<select id="selectLookAround" resultMap="lookAroundResultSet">
+		SELECT *
+		FROM LOOK_AROUND
+		WHERE ROWNUM = 1
+	</select>
+	
+	<update id="updateYoutube" parameterType="String">
+		UPDATE LOOK_AROUND SET LA_YOUTUBE = #{ newAddress }
+		WHERE ROWNUM = 1
+	</update>
+	
+	<update id="changeLaPicture" parameterType="LookAround">
+		UPDATE LOOK_AROUND SET
+		LA_PICTURE1 = #{ laPicture1 }
+		WHERE ROWNUM = 1
+	</update>
+	
+	<update id="changeLaPicture2" parameterType="LookAround">
+		UPDATE LOOK_AROUND SET
+		LA_PICTURE2 = #{ laPicture2 }
+		WHERE ROWNUM = 1
+	</update>
+	
+	<select id="masterMapChange" resultMap="masterMapResultSet">
+		SELECT *
+		FROM MASTER_MAP
+		WHERE MM_NAME = #{ mmName }
+	</select>
+	
+	<insert id="masterApply" parameterType="Apply">
+		INSERT INTO APPLY VALUES(SEQ_APP_CODE.NEXTVAL, #{ appName }, #{ appPhone }, #{ appManager }, #{ appContent }, SYSDATE, DEFAULT)
+	</insert>
+	
+	<select id="masterApplyList" resultMap="applyResultSet">
+		SELECT *
+		FROM APPLY
+		ORDER BY 1 DESC
+	</select>
+	
+	<select id="masterApplyYList" resultMap="applyResultSet">
+		SELECT *
+		FROM APPLY
+		WHERE APP_STATUS = 'J'
+		ORDER BY 1 DESC
+	</select>
+	
+	<select id="masterApplyNList" resultMap="applyResultSet">
+		SELECT *
+		FROM APPLY
+		WHERE APP_STATUS = 'N'
+		ORDER BY 1 DESC
+	</select>
+	
+	<update id="deleteApplyNList" parameterType="String">
+		UPDATE APPLY SET APP_STATUS = 'F' WHERE APP_CODE = #{ appCode }
+	</update>
+	
+	<select id="selectOneApplyY" resultMap="applyResultSet">
+		SELECT *
+		FROM APPLY
+		WHERE APP_CODE = #{ appCode }
+	</select>
+	
+	<update id="applyOk">
+		UPDATE APPLY SET APP_STATUS = 'O' WHERE APP_CODE = #{ appCode }
+	</update>
+	
+	<update id="applyNo">
+		UPDATE APPLY SET APP_STATUS = 'N' WHERE APP_CODE = #{ appCode }
+	</update>
+	
+	<select id="selectAdminYList" resultMap="adminResultSet">
+		SELECT *
+		FROM ADMIN
+		WHERE A_STATUS = 'J'
+	</select>
+	
+	<select id="selectAdminNList" resultMap="adminResultSet">
+		SELECT *
+		FROM ADMIN
+		WHERE A_STATUS = 'F'
+	</select>
+	
+	<update id="deleteAdminNList">
+		UPDATE ADMIN SET A_STATUS = 'X' WHERE A_CODE = #{ aCode }
+	</update>
+	
+	<select id="selectOneAdmin" resultMap="adminResultSet">
+		SELECT A_CODE, COM_NAME COM_CODE, A_ID, A_PWD, A_NAME, A_BIRTH, A_EMAIL, A_PHONE, A_ADDRESS, A_DEPARTMENT, A_ENROLL_DATE, A_STATUS, AP_ADDRESS AP_CODE
+		FROM ADMIN
+		LEFT JOIN APARTMENT USING(AP_CODE)
+		LEFT JOIN COMPANY USING(COM_CODE)
+		WHERE A_CODE = #{ aCode }  
+	</select>
+	
+	<update id="adminJoinOk">
+		UPDATE ADMIN SET A_STATUS = 'Y' WHERE A_CODE = #{ aCode }
+	</update>
+	
+	<update id="adminJoinNo">
+		UPDATE ADMIN SET A_STATUS = 'F' WHERE A_CODE = #{ aCode }
+ 	</update>
+ 	
+ 	<select id="mainPageMemList" resultMap="memberResultSet">
+ 		SELECT *
+ 		FROM (SELECT * 
+ 					FROM MEMBER 
+ 					WHERE M_STATUS = 'J'
+ 					ORDER BY 1 DESC)
+ 		WHERE ROWNUM  BETWEEN 1 AND 6
+ 	</select>
+ 	
+ 	<select id="mainPageAppList" resultMap="applyResultSet">
+ 		SELECT *
+ 		FROM (SELECT * 
+ 					FROM APPLY 
+ 					WHERE APP_STATUS = 'J'
+ 					ORDER BY 1 DESC)
+ 		WHERE ROWNUM  BETWEEN 1 AND 6
+ 	</select>
+ 	
+ 	<select id="mainPageMemCount" resultType="_int">
+ 		SELECT COUNT(*)
+ 		FROM MEMBER
+ 		WHERE M_STATUS = 'J'
+ 	</select>
+ 	
+ 	<select id="mainPageAppCount" resultType="_int">
+ 		SELECT COUNT(*)
+ 		FROM APPLY
+ 		WHERE APP_STATUS = 'J'
+ 	</select>
+ 	
+ 	<select id="mainPageEcCount" resultMap="ecResultSet">
+ 		SELECT
+			(SELECT COUNT(*) FROM MEMBER WHERE SUBSTR(M_ENROLLDATE, 1, 2) LIKE '18') EC_MEMBER18,
+			(SELECT COUNT(*) FROM MEMBER WHERE SUBSTR(M_ENROLLDATE, 1, 2) LIKE '19') EC_MEMBER19,
+			(SELECT COUNT(*) FROM MEMBER WHERE SUBSTR(M_ENROLLDATE, 1, 2) LIKE '20') EC_MEMBER20,
+			(SELECT COUNT(*) FROM ADMIN WHERE SUBSTR(A_ENROLL_DATE, 1, 2) LIKE '18') EC_ADMIN18,
+			(SELECT COUNT(*) FROM ADMIN WHERE SUBSTR(A_ENROLL_DATE, 1, 2) LIKE '19') EC_ADMIN19,
+			(SELECT COUNT(*) FROM ADMIN WHERE SUBSTR(A_ENROLL_DATE, 1, 2) LIKE '20') EC_ADMIN20,
+			(SELECT COUNT(*) FROM APPLY WHERE SUBSTR(APP_DATE, 1, 2) LIKE '18') EC_APPLY18,
+			(SELECT COUNT(*) FROM APPLY WHERE SUBSTR(APP_DATE, 1, 2) LIKE '19') EC_APPLY19,
+			(SELECT COUNT(*) FROM APPLY WHERE SUBSTR(APP_DATE, 1, 2) LIKE '20') EC_APPLY20
+		FROM MEMBER, ADMIN, APPLY
+		WHERE ROWNUM = 1	
+ 	</select>
+ 	
+ 	<select id="mainPageIncomeMoney" resultMap="imResultSet">
+ 		SELECT
+			(SELECT SUM(I_MONEY) FROM INCOME WHERE SUBSTR(I_DATE, 1, 2) LIKE '17') I_MONEY17,
+			(SELECT SUM(I_MONEY) FROM INCOME WHERE SUBSTR(I_DATE, 1, 2) LIKE '18') I_MONEY18,
+			(SELECT SUM(I_MONEY) FROM INCOME WHERE SUBSTR(I_DATE, 1, 2) LIKE '19') I_MONEY19,
+			(SELECT SUM(I_MONEY) FROM INCOME WHERE SUBSTR(I_DATE, 1, 2) LIKE '20') I_MONEY20
+		FROM INCOME
+		WHERE ROWNUM =1
+ 	</select>
+ 	
+ 	<select id="mainPageAllMemberCount" resultType="_int">
+ 		SELECT
+			(SELECT COUNT(*) FROM MEMBER WHERE M_STATUS = 'Y')+
+			(SELECT COUNT(*) FROM ADMIN WHERE A_STATUS = 'Y') ALL_MEMBER_COUNT
+		FROM MEMBER, ADMIN
+		WHERE ROWNUM = 1
+ 	</select>
+ 	
+ 	<insert id="apartmentInsert" parameterType="Apartment">
+ 		INSERT INTO APARTMENT VALUES(#{ apCode }, #{ apAddress })
+ 	</insert>
+ 	
+ 	<select id="apartmentList" resultMap="aptResultSet">
+ 		SELECT * FROM APARTMENT ORDER BY 1 ASC
+ 	</select>
+ 	
+ 	<delete id="deleteApt" parameterType="String">
+ 		DELETE FROM APARTMENT WHERE AP_CODE = #{ apCode }
+ 	</delete>
+ 	
+ 	<select id="incomeAllList" resultMap="incomeResultSet">
+ 		SELECT I_CODE, COM_NAME AS COM_CODE, I_DATE, I_MONEY
+		FROM INCOME
+		LEFT JOIN COMPANY USING(COM_CODE)
+ 	</select>
+ 	
+ 	<select id="boardChart" resultMap="BcResultSet">
+ 		SELECT
+			(SELECT COUNT(*) FROM BOARD WHERE SUBSTR(B_CREATE_DATE, 1, 2) LIKE '17') BC_BOARD17,
+            (SELECT COUNT(*) FROM BOARD WHERE SUBSTR(B_CREATE_DATE, 1, 2) LIKE '18') BC_BOARD18,
+            (SELECT COUNT(*) FROM BOARD WHERE SUBSTR(B_CREATE_DATE, 1, 2) LIKE '19') BC_BOARD19,
+            (SELECT COUNT(*) FROM BOARD WHERE SUBSTR(B_CREATE_DATE, 1, 2) LIKE '20') BC_BOARD20
+		FROM BOARD
+		WHERE ROWNUM = 1
+ 	</select>
+ 	
+ 	<select id="boardAllList" resultMap="boardResultSet">
+ 		SELECT *
+ 		FROM BOARD
+ 	</select>
+ 	
+ 	<select id="memberChart" resultMap="McResultSet">
+ 		SELECT
+			(SELECT COUNT(*) FROM MEMBER WHERE SUBSTR(M_ENROLLDATE, 1, 2) LIKE '17') MC_MEMBER17,
+            (SELECT COUNT(*) FROM MEMBER WHERE SUBSTR(M_ENROLLDATE, 1, 2) LIKE '18') MC_MEMBER18,
+            (SELECT COUNT(*) FROM MEMBER WHERE SUBSTR(M_ENROLLDATE, 1, 2) LIKE '19') MC_MEMBER19,
+            (SELECT COUNT(*) FROM MEMBER WHERE SUBSTR(M_ENROLLDATE, 1, 2) LIKE '20') MC_MEMBER20,
+            (SELECT COUNT(*) FROM ADMIN WHERE SUBSTR(A_ENROLL_DATE, 1, 2) LIKE '17') MC_ADMIN17,
+            (SELECT COUNT(*) FROM ADMIN WHERE SUBSTR(A_ENROLL_DATE, 1, 2) LIKE '18') MC_ADMIN18,
+            (SELECT COUNT(*) FROM ADMIN WHERE SUBSTR(A_ENROLL_DATE, 1, 2) LIKE '19') MC_ADMIN19,
+            (SELECT COUNT(*) FROM ADMIN WHERE SUBSTR(A_ENROLL_DATE, 1, 2) LIKE '20') MC_ADMIN20
+		FROM MEMBER, ADMIN
+		WHERE ROWNUM = 1
+ 	</select>
+ 	
+ 	<select id="memberAllList" resultMap="memberResultSet">
+ 		SELECT *
+ 		FROM MEMBER
+ 	</select>
+ 	
+ 	<select id="adminAllList" resultMap="adminResultSet">
+ 		SELECT *
+ 		FROM ADMIN
+ 	</select>
+ 	
+ 	<select id="selectMemberEmail" resultMap="memberResultSet">
+ 		SELECT M_EMAIL
+ 		FROM MEMBER
+ 		WHERE M_EMAIL_STATUS = 'Y'
+ 	</select>
+ 	
+ 	<select id="selectAllMember" resultMap="memberResultSet">
+ 		SELECT *
+ 		FROM MEMBER
+ 		WHERE M_STATUS = 'Y'
+ 		AND M_EMAIL_STATUS = 'Y'
+ 	</select>
+ 	
+ 	<select id="selectAllMaster" resultMap="masterResultSet">
+ 		SELECT *
+ 		FROM MASTER
+ 		WHERE MA_STATUS = 'Y'
+ 	</select>
+ 	
+ 	<select id="selectAllReport" resultMap="declarationResultSet">
+ 		SELECT * 
+ 		FROM BOARD_DECLARATION
+ 	</select>
+ 	
+ 	<select id="selectOneBoard" resultMap="boardResultSet">
+ 		SELECT *
+ 		FROM BOARD
+ 		WHERE B_CODE = #{ bCode }
+ 	</select>
+ 	
+ 	<update id="boardDelete">
+ 		UPDATE BOARD SET B_STATUS = 'N' WHERE B_CODE = #{ b_code }
+ 	</update>
+ 	
+ 	<select id="selectOneReport" resultMap="declarationResultSet">
+ 		SELECT *
+ 		FROM BOARD_DECLARATION
+ 		WHERE BD_CODE = #{ rCode }
+ 	</select>
+ 	
+ 	<update id="masterReportDelete" parameterType="Board_Declaration">
+ 		UPDATE BOARD_DECLARATION SET BD_STATUS = 'N'
+		WHERE BD_CODE = #{ bd_code }
+ 	</update>
+ 	
+ 	<select id="selectOneMember" resultType="String">
+ 		SELECT M_CODE
+ 		FROM MEMBER
+ 		WHERE M_ID = #{ m_id }
+ 	</select>
+ 	
+ 	<insert id="sendMessageForMember">
+		INSERT INTO MEMBER_MESSAGE VALUES
+		(SEQ_MMS_CODE.NEXTVAL,
+		'접수하신 신고에 대한 처리 안내',
+		1,
+		#{ mCode },
+		'접수하신 신고는 허위 신고로 판결되어 신고문을 삭제 처리 되었습니다. 허위신고 자제 부탁드립니다.',
+		SYSDATE,
+		DEFAULT, 
+		DEFAULT)
+	</insert>
+	
+	<update id="masterReportClear">
+ 		UPDATE BOARD_DECLARATION SET BD_STATUS = 'O'
+		WHERE BD_CODE = #{ bd_code }
+	</update>
+	
+	 <insert id="sendMessageForMember2">
+		INSERT INTO MEMBER_MESSAGE VALUES
+		(SEQ_MMS_CODE.NEXTVAL,
+		'접수하신 신고에 대한 처리 안내',
+		1,
+		#{ mCode },
+		'접수하신 신고에 대해 처리를 완료하였습니다. 앞으로도 많은 신고 부탁드립니다. 감사합니다.',
+		SYSDATE,
+		DEFAULT, 
+		DEFAULT)
+	</insert>
+	
+	<update id="deleteBoard">
+		UPDATE BOARD SET B_STATUS = 'N'
+		WHERE M_ID = #{ bMid }
+	</update>
+	
+	<update id="memberBlack">
+		UPDATE MEMBER SET M_STATUS = 'B'
+		WHERE M_ID = #{ bMid }
+	</update>
+	
+	<select id="selectMMList" resultMap="masterMapResultSet">
+		SELECT *
+		FROM MASTER_MAP
+	</select>
+</mapper>

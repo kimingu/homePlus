@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+
+/* margin */
+	.margin-5 {
+		margin: 5px;
+	}
+
+	.margin-10 {
+		margin: 10px;
+	}
+	
+	.margin-15 {
+		margin: 15px;
+	}
+	
+	.margin-20 {
+		margin: 20px;
+	}
+	
+	.margin-30 {
+		margin: 30px;
+	}
+	
+	.margin-50 {
+		margin: 50px;
+	}
+	   
+	.margin-100 {
+		margin: 100px;
+	}
+	
+	.margin-120 {
+		margin: 120px;
+	}
+	
+
+  
+     
+  	.marginTop-10 {
+  		margin-top: 10px;
+  	}
+  
+  	.marginTop-20 {
+  		margin-top: 20px;
+  	}
+  	
+	.marginTop-50 {
+  		margin-top: 50px;
+  	}
+  	
+	.marginTop-80 {
+  		margin-top: 80px;
+  	}
+  	
+	.marginTop-100 {
+  		margin-top: 100px;
+  	}
+
+
+
+  	.marginBottom-10 {
+  		margin-bottom: 10px;
+  	}
+  	
+  	.marginBottom-20 {
+  		margin-bottom: 20px;
+  	}
+
+  	.marginBottom-50 {
+  		margin-bottom: 50px;
+  	}
+  	   	
+  	.marginBottom-100 {
+  		margin-bottom: 100px;
+  	}
+  	
+  	.marginBottom-300 {
+  		margin-bottom: 300px;
+  	}
+  	
+  	
+  	
+  	.marginRight-10 {
+  		margin-right: 10px;
+  	}
+  	
+  	.marginLeft-20 { 
+  		margin-left: 20px;
+  	}
+
+  	.marginLeft-50 { 
+  		margin-left: 50px;
+  	}   
+  	
+  	.marginLeft-100 { 
+  		margin-left: 100px;
+  	}    
+  	
+  	.marginLeft-150 { 
+  		margin-left: 150px;
+  	}    	
+  	
+  	
+  	
+  	
+  	.marginRightLeft-50 {
+  		margin-left: 50px;
+  		margin-right: 50px;	
+  	}
+  	
+  	
+  	.margin-auto {
+  		margin: 0 auto;
+  	}
+  	
+
+  	@media screen and (max-width: 991px) {
+  		.row.margin-120 {
+  			margin-top: 20px;
+  		}
+  	}
+  	
+  	
+  	
+  	
+	.marginTB-5 {
+  		margin-top: 5px;
+  		margin-bottom: 5px;
+  	}  	
+  	
+  	.marginTB-20 {
+  		margin-top: 20px;
+  		margin-bottom: 20px;
+  	}
+   	
+   	
+   	
+   	
+/* padding */
+	.padding-10 {
+		padding: 10px;
+	}
+
+	.padding-20 {
+		padding: 20px;
+	}
+
+	.padding-35 {
+		padding: 35px;
+	}
+	
+	
+	
+	.paddingTop-20 {
+		padding-top: 20px;
+	}
+	
+	.paddingLeftRgiht-10 {
+    	padding-left: 10px;
+    	padding-right: 10px;
+    }
+	
+    .paddingLeftRgiht-35 {
+    	padding-left: 35px;
+    	padding-right: 35px;
+    }
+
+    .paddingLeftRgiht-110 {
+    	padding-left: 110px;
+    	padding-right: 110px;
+    }
+
+    .paddingLeftRgiht-120 {
+    	padding-left: 120px;
+    	padding-right: 120px;
+    }
+    
+	.paddingLeftRgiht-135 {
+    	padding-left: 135px;
+    	padding-right: 135px;
+    }
+   	
+    .paddingLeftRgiht-150 {
+    	padding-left: 150px;
+    	padding-right: 150px;
+    }
+   	
+   	
+   	.paddingRight-30 {
+   		padding-regiht: 30px;
+   	}
+   	
+   	
+   	.paddingLeft-10p {
+   		padding-left: 10%;
+   	}
+   	
+   	
+   	
+   	
+/* font */   	
+	.fontSize-20 {
+   		font-size: 20px;
+   	}
+   	
+   	
+   	.fontWeight-400 {
+   		font-weight: 400;
+   	}
+   	
+   	
+   	.fontWeight-600 {
+   		font-weight: 600;
+   	}
+   	
+   	
+   	
+   	   	
+   	
+   	
+/*             */   	
+   	.display-inlnine-block {
+   		display: inline-block;
+   	}
+   	
+   	
+   	.textAlign-center {
+   		text-align: center;
+   	}
+   	
+	.textAlign-right {
+   		text-align: right;
+   	}
+   	
+   	.white-background {
+   		background-color: white;
+   	}
+   	
+   	
+   	
+	.Relative {
+   		position: relative;
+   	}
+   	
+   	
+   	.floatRight {
+   		float: right;
+   	}
+   	
+   	.floatLeft {
+   		float: left;
+   	}
+   	
+
+   	
+/*button*/
+	.buttonStyle {
+		background-color: pink;
+		border: 1px solid red;
+	}   	
+   	
+   	
+   	
+   	
+/*height*/
+	.hegihtFull {
+		height: 100%;
+	}   
+   	
+   	.height-145 {
+   		height: 145px;
+   	}
+   	
+   	
+   	.height-150 {
+   		height: 150px;
+   	}   	
+   	
+   	.height-300 {
+   		height: 300px;
+   	}
+   	
+   	.minHeight-80 {
+   		min-height: 80px;
+   	}
+   	
+   	
+   	
+   	
+   	
+   	
+	#btnArea {
+   		position: absolute;
+   		top: 220px;
+   		left: 35%;
+   	}
+   	
+   	
+   

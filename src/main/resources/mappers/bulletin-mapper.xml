@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bulletinMapper">
+	<resultMap id="bulletinResultSet" type="BulletinBoard">
+		<id property="bbCode" column="BB_CODE"/>
+		<result property="mCode" column="M_CODE"/>
+		<result property="bbCategory" column="BB_CATEGORY"/>
+		<result property="bbTitle" column="BB_TITLE"/>
+		<result property="bbContent" column="BB_CONTENT"/>
+		<result property="bbDcategory" column="BB_DCATEGORY"/>
+		<result property="bbAnswer" column="BB_ANSWER"/>
+		<result property="bbStatus" column="BB_STATUS"/>
+		<result property="bbOriginName" column="BB_ORIGINNAME"/>
+		<result property="bbReName" column="BB_RENAME"/>
+		<result property="bbCreateDate" column="BB_CREATEDATE"/>
+		<result property="bbAnwDate" column="BB_ANWDATE"/>
+	</resultMap>
+	
+	<insert id="insertbulletin" parameterType="BulletinBoard">
+		INSERT INTO BULLETINBOARD
+		VALUES(SEQ_BULLETIN_CODE.NEXTVAL,#{mCode},#{bbCategory},#{bbTitle},#{bbContent},#{bbDcategory},#{bbAnswer},'N',#{bbOriginName},#{bbReName},SYSDATE,#{bbAnwDate})
+	</insert>
+
+
+</mapper>

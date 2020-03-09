@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="readingMapper">
+<resultMap id="readingResultSet" type="ReadingRoom">
+		<id property="reaReCode" column="REA_RE_CODE"/>
+		<result property="mCode" column="M_CODE"/>
+		<result property="reaReDate" column="REA_RE_DATE"/>
+		<result property="reaEndDate" column="REA_END_DATE"/>
+		<result property="reaSeat" column="REA_SEAT"/>
+		<result property="reaStatus" column="REA_STATUS"/>
+	</resultMap>
+	<resultMap id="readingResultSet2" type="ReadingRoom">
+		<id property="reaReCode" column="REA_RE_CODE"/>
+		<result property="mCode" column="M_CODE"/>
+		<result property="reaReDate" column="REA_RE_DATE"/>
+		<result property="reaEndDate" column="REA_END_DATE"/>
+		<result property="reaSeat" column="REA_SEAT"/>
+		<result property="reaStatus" column="REA_STATUS"/>
+		<result property="mName" column="M_NAME"/>
+	</resultMap>
+	<select id="searchReading" parameterType="string" resultType="_int">
+		SELECT COUNT(*)
+		FROM READINGROOM
+		WHERE M_CODE = #{mCode} AND <![CDATA[to_date(REA_RE_DATE,'YYYY-MM-DD') = to_date(SYSDATE, 'YYYY-MM-DD')]]> AND  REA_STATUS = 'N'
+	</select>
+	
+	<insert id="insertReading" parameterType="ReadingRoom">
+		INSERT INTO READINGROOM
+		VALUES(SEQ_REA_CODE.NEXTVAL,#{mCode},SYSDATE,SYSDATE,#{reaSeat},'N')
+	</insert>
+	
+	<select id="selectList" resultMap="readingResultSet">
+		SELECT *
+		FROM READINGROOM
+		WHERE REA_STATUS = 'N' AND <![CDATA[to_date(REA_END_DATE,'YYYY-MM-DD') = to_date(SYSDATE, 'YYYY-MM-DD')]]>
+		<!-- REAENDDATE가 현재 날짜 값만 넣어 주고 거기다 =같은 값만 불러준다. -->
+	</select>
+	
+	<update id="cancelAdReading" parameterType="_int"> 
+		UPDATE READINGROOM 
+		SET REA_STATUS = 'Y' 
+		WHERE REA_SEAT = #{reaSeat}
+	</update>
+	
+	<select id="adSearchReMember" resultMap="readingResultSet2">
+		SELECT *
+		FROM AD_REALIST_VIEW
+		WHERE REA_STATUS = 'N' AND <![CDATA[to_date(REA_END_DATE,'YYYY-MM-DD') = to_date(SYSDATE, 'YYYY-MM-DD')]]> AND M_NAME=#{mName}
+		<!-- REAENDDATE가 현재 날짜 값만 넣어 주고 거기다 =같은 값만 불러준다. -->
+	</select>
+	
+	
+	
+
+</mapper>

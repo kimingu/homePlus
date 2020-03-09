@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fac">
+	<resultMap id="facList" type="facList">
+		<id property="bb_code" column="BB_CODE"/>
+		<result property="m_name" column="M_NAME"/>
+		<result property="bb_category" column="BB_CATEGORY"/>
+		<result property="bb_title" column="BB_TITLE"/>
+		<result property="bb_content" column="BB_CONTENT"/>
+		<result property="bb_dcategory" column="BB_DCATEGORY"/>
+		<result property="bb_answer" column="BB_ANSWER"/>
+		<result property="bb_status" column="BB_STATUS"/>
+		<result property="bb_originname" column="BB_ORIGINNAME"/>
+		<result property="bb_rename" column="BB_RENAME"/>
+		<result property="bb_createdate" column="BB_CREATEDATE"/>
+		<result property="bb_anwdate" column="BB_ANWDATE"/>
+	</resultMap>
+	<resultMap id="Company" type="Company">
+		<id property="comCode" column="COM_CODE"/>
+		<result property="comDivision" column="COM_DIVISION"/>
+		<result property="comName" column="COM_NAME"/>
+		<result property="comCeo" column="COM_CEO"/>
+		<result property="comStartDate" column="COM_START_DATE"/>
+		<result property="comEsDate" column="COM_ES_DATE"/>
+		<result property="comScale" column="COM_SCALE"/>
+		<result property="comNw" column="COM_NW"/>
+		<result property="comCapital" column="COM_CAPITAL"/>
+		<result property="comMajor" column="COM_MAJOR"/>
+		<result property="comTel" column="COM_TEL"/>
+		<result property="comPay" column="COM_PAY"/>
+		<result property="comStatus" column="COM_STATUS"/>		
+	</resultMap>
+	<resultMap id="facPersent" type="Persent">
+		<id property="bb_code" column="BB_CODE"/>
+		<result property="cate1" column="CATE1"/>
+		<result property="cate2" column="CATE2"/>
+		<result property="cate3" column="CATE3"/>
+		<result property="cate4" column="CATE4"/>
+	</resultMap>
+	<resultMap id="apsemidetail" type="ApsemiDetail">
+		<id property="apm_code" column="APM_CODE"/>
+		<result property="apm_dcode" column="APM_DCODE"/>
+		<result property="bb_code" column="BB_CODE"/>
+		<result property="bb_dcategory" column="BB_DCATEGORY"/>
+		<result property="bb_status" column="BB_STAUTS"/>
+	</resultMap>
+	<resultMap id="road" type="Road">
+		<id property="road_code" column="ROAD_CODE"/>
+		<result property="bb_code" column="BB_CODE"/>
+		<result property="bb_status" column="BB_STATUS"/>
+ 	</resultMap>
+ 	<resultMap id="rdman" type="Rdman">
+ 		<id property="rm_code" column="R_CODE"/>
+ 		<result property="bb_code" column="BB_CODE"/>
+ 	</resultMap>
+	<select id="getListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM FAC_LIST
+		WHERE BB_STATUS = 'N'
+	</select>
+	<select id="selectList" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE BB_CATEGORY = '1'
+		AND BB_STATUS = 'N'
+	</select>
+	<select id="selectAPList" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,1) = '1' AND BB_CATEGORY = '1'
+		AND BB_STATUS = 'N'
+	</select>
+	<select id="getPersent" resultMap="facPersent">
+		SELECT *
+		FROM FAC_PERSENT
+		WHERE BB_STATUS = 'N'
+	</select>
+	<select id="ApcateList" parameterType="string" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,1) = '1' AND BB_CATEGORY = '1'
+		AND SUBSTR(BB_DCATEGORY,3,3) = #{sel}
+		AND BB_STATUS = 'N'
+	</select>
+	<select id="apartsemi" parameterType="string" resultMap="apsemidetail">
+		SELECT *
+		FROM APSEMIDETAIL
+		WHERE APM_CODE = #{code}
+	</select>
+	<select id="selectConvList" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,1) = '2' AND BB_STATUS = 'N'
+	</select>
+	<select id="getConvPersent" resultMap="facPersent">
+		SELECT *
+		FROM FAC_PERSENT2
+		WHERE BB_STATUS = 'N'
+	</select>
+	<select id="selectTrafList" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,1) = '3' AND BB_STATUS = 'N'
+	</select>
+	<select id="getTrafPersent" resultMap="facPersent">
+		SELECT *
+		FROM FAC_PERSENT3
+		WHERE BB_STATUS = 'N'
+	</select>
+	<select id="grList" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,3) = '2/3' AND SUBSTR(BB_DCATEGORY,5,3) = #{code}
+		AND BB_STATUS = 'N'
+	</select>
+	<select id="facdetail" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE BB_CODE = #{code}
+		AND BB_STATUS = 'N'
+	</select>
+	<select id="comlist" resultMap="Company">
+		SELECT *
+		FROM COMPANY
+		WHERE COM_DIVISION = 'F'
+	</select>
+	<select id="selectft" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,1) = '2' AND SUBSTR(BB_DCATEGORY,3,1) = '1' AND BB_STATUS = 'N'
+	</select>
+	<insert id="facwork" parameterType="FacilityTask">
+		INSERT INTO FACILITYTASK VALUES(SEQ_FT_CODE.NEXTVAL,#{ft_cate},#{ft_detail},#{ft_need},#{ft_status})
+	</insert>
+	<update id="facend" parameterType="FacAnswer">
+		UPDATE BULLETINBOARD
+		SET BB_STATUS = 'Y'
+		WHERE BB_CODE = #{bb_code}
+	</update>
+	<update id="facanswer" parameterType="FacAnswer">
+		UPDATE BULLETINBOARD
+		SET BB_ANSWER = #{answer}
+		WHERE BB_CODE = #{bb_code}
+	</update>
+	<select id="trafficenter" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,1) = '3' AND SUBSTR(BB_DCATEGORY,3,1) = '6' AND BB_STATUS = 'N'
+	</select>
+	<select id="selecttraffic" parameterType="string" resultMap="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,1) = '3' AND SUBSTR(BB_DCATEGORY,3,1) = '6'
+		AND SUBSTR(BB_DCATEGORY,5,1) = #{sel}
+		AND BB_STATUS = 'N'
+	</select>
+	<select id="roadlist" resultMap="road">
+		SELECT * FROM ROADDEATIL
+	</select>
+	<select id="readlist" resultMap="rdman">
+		SELECT * FROM READINGMAN
+	</select>
+	<select id="getCListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM FAC_LIST
+		WHERE BB_STATUS = 'N' AND SUBSTR(BB_DCATEGORY,1,1) = '2'
+	</select>
+	<select id="getTListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM FAC_LIST
+		WHERE BB_STATUS = 'N' AND SUBSTR(BB_DCATEGORY,1,1) = '3'
+	</select>
+	<select id="pklist" parameterType="string" resultType="ParkArea">
+		SELECT *
+		FROM PARKAREAMAN
+		WHERE APM_CODE = #{code}
+	</select>
+	<select id="apdetail" parameterType="string" resultType="facList">
+		SELECT *
+		FROM FAC_LIST
+		WHERE SUBSTR(BB_DCATEGORY,1,10) = #{code}
+		AND BB_STATUS = 'N'
+	</select>
+</mapper>

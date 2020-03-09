@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+
+/********common css*********/
+.tdd{
+	text-align: center !important;
+}
+
+.thh{
+	text-align: center !important;
+}
+
+.tt{
+	width: 60px;
+}
+
+/********board css*********/
+.modal-width{
+	width: 100% !important;
+}
+
+
+/********MainPage css*********/
+.outCom{
+	
+}
+
+.inCom{
+	padding-top: 30px !important;
+}
+
+.inbtn{
+	padding-left: 40px !important;
+	padding-right: 40px !important;
+}
+
+/* .btn-lg {
+  padding: auto !important;
+  font-size: 30px !important; 
+  } */
+
+
+
+/********patrolMain css*********/
+
+.inner-card-box{
+	display: inline-block;
+	width: 25%;
+	margin: 30px !important;
+}
+
+.btnPo{
+	float: right !important;
+	margin: 15px !important;
+}
+
+.patrolHeadBorder{
+	width: auto;
+	border-bottom: 2px solid #c0c0c0;
+}
+
+.patrolBtnBorder{
+	width: auto;
+	border-top: 1px solid #c0c0c0;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.kh.homeplus.practitioners.annual.model.dao.AnnualDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/dao/AnnualDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="491" y="594"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" language="java" name="com.kh.homeplus.practitioners.annual.model.service.AnnualService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/service/AnnualService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="791" y="306"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" language="java" name="com.kh.homeplus.practitioners.annual.model.exception.AnnualException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/exception/AnnualException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="478" y="56"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.kh.homeplus.practitioners.annual.model.service.AnnualServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/service/AnnualServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="493" y="392"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.kh.homeplus.practitioners.annual.controller.AnnualController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/controller/AnnualController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="486" y="197"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.kh.homeplus.practitioners.annual.model.vo.Annual" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/vo/Annual.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="154" y="315"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="7" language="java" name="com.kh.homeplus.practitioners.annual.model.service.AnnualService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/service/AnnualService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="791" y="306"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="8" language="java" name="com.kh.homeplus.practitioners.annual.model.exception.AnnualException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/exception/AnnualException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="478" y="56"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.kh.homeplus.practitioners.annual.model.service.AnnualServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/service/AnnualServiceImpl.java" 
+    binary="false" corner="BOTTOM_LEFT">    
+    <position height="-1" width="-1" x="493" y="392"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.kh.homeplus.practitioners.annual.controller.AnnualController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/controller/AnnualController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="486" y="197"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.kh.homeplus.practitioners.annual.model.vo.Annual" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/annual/model/vo/Annual.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="154" y="315"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="12" language="java" name="com.kh.homeplus.practitioners.carDb.model.service.CarDbService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/service/CarDbService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1635" y="142"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="13" language="java" name="com.kh.homeplus.practitioners.carDb.model.vo.CarDb" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/vo/CarDb.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1026" y="143"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.kh.homeplus.practitioners.carDb.model.service.CarDbServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/service/CarDbServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1334" y="358"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.kh.homeplus.practitioners.carDb.model.exception.CarDbException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/exception/CarDbException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1315" y="40"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.kh.homeplus.practitioners.carDb.controller.CarDbController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/controller/CarDbController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1333" y="207"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.kh.homeplus.practitioners.carDb.model.dao.CarDbDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/dao/CarDbDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1040" y="406"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="18" language="java" name="com.kh.homeplus.practitioners.carDb.model.service.CarDbService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/service/CarDbService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1635" y="142"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="19" language="java" name="com.kh.homeplus.practitioners.carDb.model.vo.CarDb" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/vo/CarDb.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1026" y="143"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.kh.homeplus.practitioners.carDb.model.service.CarDbServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/service/CarDbServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1334" y="358"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.kh.homeplus.practitioners.carDb.model.exception.CarDbException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/exception/CarDbException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1315" y="40"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.kh.homeplus.practitioners.carDb.controller.CarDbController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/controller/CarDbController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1333" y="207"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.kh.homeplus.practitioners.carDb.model.dao.CarDbDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/carDb/model/dao/CarDbDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1040" y="406"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.kh.homeplus.practitioners.commute.controller.CommuteController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/controller/CommuteController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2211" y="311"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.kh.homeplus.practitioners.commute.model.dao.CommuteDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/dao/CommuteDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1908" y="585"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.kh.homeplus.practitioners.commute.model.service.CommuteServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/service/CommuteServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2225" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.kh.homeplus.practitioners.commute.model.vo.Commute" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/vo/Commute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1904" y="233"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="28" language="java" name="com.kh.homeplus.practitioners.commute.model.service.CommuteService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/service/CommuteService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2558" y="199"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="29" language="java" name="com.kh.homeplus.practitioners.commute.model.exception.CommuteException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/exception/CommuteException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2209" y="58"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.kh.homeplus.practitioners.commute.controller.CommuteController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/controller/CommuteController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2211" y="311"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.kh.homeplus.practitioners.commute.model.dao.CommuteDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/dao/CommuteDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1908" y="585"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.kh.homeplus.practitioners.commute.model.service.CommuteServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/service/CommuteServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2225" y="496"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.kh.homeplus.practitioners.commute.model.vo.Commute" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/vo/Commute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1904" y="233"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="34" language="java" name="com.kh.homeplus.practitioners.commute.model.service.CommuteService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/service/CommuteService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2558" y="199"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="35" language="java" name="com.kh.homeplus.practitioners.commute.model.exception.CommuteException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/commute/model/exception/CommuteException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2209" y="58"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="36" language="java" name="com.kh.homeplus.practitioners.delivery.model.service.DeliveryService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/service/DeliveryService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="740" y="888"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="37" language="java" name="com.kh.homeplus.practitioners.delivery.controller.DeliveryController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/controller/DeliveryController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="424" y="794"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="com.kh.homeplus.practitioners.delivery.model.service.DeliveryServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/service/DeliveryServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="439" y="1009"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="com.kh.homeplus.practitioners.delivery.model.vo.Delivery" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/vo/Delivery.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="123" y="952"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="com.kh.homeplus.practitioners.delivery.model.dao.DeliveryDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/dao/DeliveryDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="435" y="1214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="com.kh.homeplus.practitioners.delivery.model.exception.DeliveryException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/exception/DeliveryException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="740" y="754"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="42" language="java" name="com.kh.homeplus.practitioners.delivery.model.service.DeliveryService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/service/DeliveryService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="740" y="888"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="43" language="java" name="com.kh.homeplus.practitioners.delivery.controller.DeliveryController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/controller/DeliveryController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="424" y="794"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="com.kh.homeplus.practitioners.delivery.model.service.DeliveryServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/service/DeliveryServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="439" y="1009"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="com.kh.homeplus.practitioners.delivery.model.vo.Delivery" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/vo/Delivery.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="123" y="952"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="com.kh.homeplus.practitioners.delivery.model.dao.DeliveryDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/dao/DeliveryDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="435" y="1214"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="com.kh.homeplus.practitioners.delivery.model.exception.DeliveryException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/delivery/model/exception/DeliveryException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="740" y="754"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="com.kh.homeplus.practitioners.hometax.model.exception.HometaxException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/exception/HometaxException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1629" y="760"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="com.kh.homeplus.practitioners.hometax.model.service.HometaxServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/service/HometaxServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1335" y="1024"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="com.kh.homeplus.practitioners.hometax.model.dao.HometaxDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/dao/HometaxDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1336" y="1233"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="51" language="java" name="com.kh.homeplus.practitioners.hometax.model.service.HometaxService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/service/HometaxService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1638" y="933"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="52" language="java" name="com.kh.homeplus.practitioners.hometax.controller.HometaxController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/controller/HometaxController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1331" y="789"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="53" language="java" name="com.kh.homeplus.practitioners.hometax.model.vo.Hometax" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/vo/Hometax.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1048" y="964"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="54" language="java" name="com.kh.homeplus.practitioners.hometax.model.exception.HometaxException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/exception/HometaxException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1629" y="760"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="55" language="java" name="com.kh.homeplus.practitioners.hometax.model.service.HometaxServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/service/HometaxServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1335" y="1024"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="56" language="java" name="com.kh.homeplus.practitioners.hometax.model.dao.HometaxDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/dao/HometaxDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1336" y="1233"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="57" language="java" name="com.kh.homeplus.practitioners.hometax.model.service.HometaxService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/service/HometaxService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1638" y="933"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="58" language="java" name="com.kh.homeplus.practitioners.hometax.controller.HometaxController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/controller/HometaxController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1331" y="789"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="59" language="java" name="com.kh.homeplus.practitioners.hometax.model.vo.Hometax" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/hometax/model/vo/Hometax.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1048" y="964"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="60" language="java" name="com.kh.homeplus.practitioners.patrol.model.service.PatrolService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/service/PatrolService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2817" y="1083"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="61" language="java" name="com.kh.homeplus.practitioners.patrol.model.exception.PatrolException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/exception/PatrolException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2812" y="858"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="62" language="java" name="com.kh.homeplus.practitioners.patrol.model.vo.PatrolMain" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/vo/PatrolMain.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1947" y="944"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="63" language="java" name="com.kh.homeplus.practitioners.patrol.model.vo.PatrolJournal" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/vo/PatrolJournal.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1993" y="1510"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="64" language="java" name="com.kh.homeplus.practitioners.patrol.model.service.PatrolServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/service/PatrolServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2384" y="1151"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="65" language="java" name="com.kh.homeplus.practitioners.patrol.controller.PatrolComtroller" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/controller/PatrolComtroller.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2361" y="835"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="66" language="java" name="com.kh.homeplus.practitioners.patrol.model.dao.PatrolDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/dao/PatrolDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2440" y="1479"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="67" language="java" name="com.kh.homeplus.practitioners.patrol.model.service.PatrolService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/service/PatrolService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2817" y="1083"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="68" language="java" name="com.kh.homeplus.practitioners.patrol.model.exception.PatrolException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/exception/PatrolException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2812" y="858"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="69" language="java" name="com.kh.homeplus.practitioners.patrol.model.vo.PatrolMain" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/vo/PatrolMain.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1947" y="944"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="70" language="java" name="com.kh.homeplus.practitioners.patrol.model.vo.PatrolJournal" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/vo/PatrolJournal.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1993" y="1510"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="71" language="java" name="com.kh.homeplus.practitioners.patrol.model.service.PatrolServiceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/service/PatrolServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2384" y="1151"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="72" language="java" name="com.kh.homeplus.practitioners.patrol.controller.PatrolComtroller" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/controller/PatrolComtroller.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2361" y="835"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="73" language="java" name="com.kh.homeplus.practitioners.patrol.model.dao.PatrolDao" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/patrol/model/dao/PatrolDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2440" y="1479"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="74" language="java" name="com.kh.homeplus.practitioners.takingOver.model.exception.TakingOverException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/exception/TakingOverException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="810" y="1404"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="75" language="java" name="com.kh.homeplus.practitioners.takingOver.model.service.TakingOverSerivceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/service/TakingOverSerivceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="486" y="1689"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="76" language="java" name="com.kh.homeplus.practitioners.takingOver.model.service.TakingOverService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/service/TakingOverService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="804" y="1589"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="77" language="java" name="com.kh.homeplus.practitioners.takingOver.controller.TakingOverController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/controller/TakingOverController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="492" y="1424"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="78" language="java" name="com.kh.homeplus.practitioners.takingOver.model.vo.TakingOver" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/vo/TakingOver.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="145" y="1623"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="79" language="java" name="com.kh.homeplus.practitioners.takingOver.model.dao.TakingOverDao" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/dao/TakingOverDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="484" y="1901"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="80" language="java" name="com.kh.homeplus.practitioners.takingOver.model.exception.TakingOverException" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/exception/TakingOverException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="810" y="1404"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="81" language="java" name="com.kh.homeplus.practitioners.takingOver.model.service.TakingOverSerivceImpl" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/service/TakingOverSerivceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="486" y="1689"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="82" language="java" name="com.kh.homeplus.practitioners.takingOver.model.service.TakingOverService" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/service/TakingOverService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="804" y="1589"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="83" language="java" name="com.kh.homeplus.practitioners.takingOver.controller.TakingOverController" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/controller/TakingOverController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="492" y="1424"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="84" language="java" name="com.kh.homeplus.practitioners.takingOver.model.vo.TakingOver" project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/vo/TakingOver.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="145" y="1623"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="85" language="java" name="com.kh.homeplus.practitioners.takingOver.model.dao.TakingOverDao" 
+    project="homePlus" 
+    file="/homePlus/src/main/java/com/kh/homeplus/practitioners/takingOver/model/dao/TakingOverDao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="484" y="1901"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <dependency id="86">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <association id="87">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="88" name="deService">        
+        <position height="0" width="0" x="-24" y="700"/>      
+      </attribute>      
+      <multiplicity id="89" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-24" y="700"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="90">    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="63"/>  
+  </dependency>  
+  <dependency id="91">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="48"/>  
+  </dependency>  
+  <dependency id="92">    
+    <end type="SOURCE" refId="66"/>    
+    <end type="TARGET" refId="63"/>  
+  </dependency>  
+  <dependency id="93">    
+    <end type="SOURCE" refId="77"/>    
+    <end type="TARGET" refId="78"/>  
+  </dependency>  
+  <dependency id="94">    
+    <end type="SOURCE" refId="66"/>    
+    <end type="TARGET" refId="62"/>  
+  </dependency>  
+  <realization id="95">    
+    <end type="SOURCE" refId="75"/>    
+    <end type="TARGET" refId="76"/>  
+  </realization>  
+  <association id="96">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="97" name="htService">        
+        <position height="0" width="0" x="900" y="716"/>      
+      </attribute>      
+      <multiplicity id="98" minimum="0" maximum="1">        
+        <position height="0" width="0" x="900" y="716"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="51" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="99">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="100">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="28"/>  
+  </realization>  
+  <realization id="101">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="36"/>  
+  </realization>  
+  <dependency id="102">    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="62"/>  
+  </dependency>  
+  <association id="103">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="104" name="anDao">        
+        <position height="0" width="0" x="11" y="36"/>      
+      </attribute>      
+      <multiplicity id="105" minimum="0" maximum="1">        
+        <position height="0" width="0" x="11" y="36"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="106">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="107">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="53"/>  
+  </dependency>  
+  <dependency id="108">    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="63"/>  
+  </dependency>  
+  <dependency id="109">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="27"/>  
+  </dependency>  
+  <dependency id="110">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="39"/>  
+  </dependency>  
+  <association id="111">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="112" name="htDao">        
+        <position height="0" width="0" x="900" y="716"/>      
+      </attribute>      
+      <multiplicity id="113" minimum="0" maximum="1">        
+        <position height="0" width="0" x="900" y="716"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="50" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="114">    
+    <end type="SOURCE" refId="79"/>    
+    <end type="TARGET" refId="78"/>  
+  </dependency>  
+  <dependency id="115">    
+    <end type="SOURCE" refId="75"/>    
+    <end type="TARGET" refId="78"/>  
+  </dependency>  
+  <dependency id="116">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="39"/>  
+  </dependency>  
+  <association id="117">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="118" name="coService"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="120">    
+    <end type="SOURCE" refId="77" navigable="false">      
+      <attribute id="121" name="toService">        
+        <position height="0" width="0" x="51" y="1353"/>      
+      </attribute>      
+      <multiplicity id="122" minimum="0" maximum="1">        
+        <position height="0" width="0" x="51" y="1353"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="76" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="123">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="39"/>  
+  </dependency>  
+  <association id="124">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="125" name="coDao"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="127">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <association id="128">    
+    <end type="SOURCE" refId="65" navigable="false">      
+      <attribute id="129" name="pService">        
+        <position height="0" width="0" x="1807" y="729"/>      
+      </attribute>      
+      <multiplicity id="130" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1807" y="729"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="60" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="131">    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="62"/>  
+  </dependency>  
+  <dependency id="132">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="133">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="39"/>  
+  </dependency>  
+  <association id="134">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="135" name="cdService">        
+        <position height="0" width="0" x="912" y="0"/>      
+      </attribute>      
+      <multiplicity id="136" minimum="0" maximum="1">        
+        <position height="0" width="0" x="912" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="137">    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="61"/>  
+  </dependency>  
+  <dependency id="138">    
+    <end type="SOURCE" refId="77"/>    
+    <end type="TARGET" refId="74"/>  
+  </dependency>  
+  <realization id="139">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="51"/>  
+  </realization>  
+  <dependency id="140">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="53"/>  
+  </dependency>  
+  <dependency id="141">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="53"/>  
+  </dependency>  
+  <dependency id="142">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <association id="143">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="144" name="cdDao">        
+        <position height="0" width="0" x="912" y="0"/>      
+      </attribute>      
+      <multiplicity id="145" minimum="0" maximum="1">        
+        <position height="0" width="0" x="912" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="146">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <realization id="147">    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="60"/>  
+  </realization>  
+  <dependency id="148">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="27"/>  
+  </dependency>  
+  <dependency id="149">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="29"/>  
+  </dependency>  
+  <dependency id="150">    
+    <end type="SOURCE" refId="76"/>    
+    <end type="TARGET" refId="78"/>  
+  </dependency>  
+  <association id="151">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="152" name="deDao">        
+        <position height="0" width="0" x="-24" y="700"/>      
+      </attribute>      
+      <multiplicity id="153" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-24" y="700"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="154">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <dependency id="155">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="156">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="41"/>  
+  </dependency>  
+  <dependency id="157">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="53"/>  
+  </dependency>  
+  <dependency id="158">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="27"/>  
+  </dependency>  
+  <association id="159">    
+    <end type="SOURCE" refId="64" navigable="false">      
+      <attribute id="160" name="pDao">        
+        <position height="0" width="0" x="1807" y="729"/>      
+      </attribute>      
+      <multiplicity id="161" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1807" y="729"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="66" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="162">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="163">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="27"/>  
+  </dependency>  
+  <association id="164">    
+    <end type="SOURCE" refId="75" navigable="false">      
+      <attribute id="165" name="toDao">        
+        <position height="0" width="0" x="51" y="1353"/>      
+      </attribute>      
+      <multiplicity id="166" minimum="0" maximum="1">        
+        <position height="0" width="0" x="51" y="1353"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="79" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="167">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="168">    
+    <end type="SOURCE" refId="60"/>    
+    <end type="TARGET" refId="63"/>  
+  </dependency>  
+  <dependency id="169">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="170">    
+    <end type="SOURCE" refId="60"/>    
+    <end type="TARGET" refId="62"/>  
+  </dependency>  
+  <association id="171">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="172" name="anService">        
+        <position height="0" width="0" x="0" y="-6"/>      
+      </attribute>      
+      <multiplicity id="173" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="-6"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

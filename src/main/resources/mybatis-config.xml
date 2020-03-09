@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC
+"-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="com.kh.homeplus.master.model.vo.Master" alias="Master"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.Message" alias="Message"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.PageInfo" alias="PageInfo"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.MasterMap" alias="MasterMap"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.Apartment" alias="Apartment"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.Apply" alias="Apply"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.Income" alias="Income"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.EnrollCount" alias="EC"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.BoardChart" alias="BC"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.MemberChart" alias="MC"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.IncomeMoney" alias="IM"/>
+		<typeAlias type="com.kh.homeplus.admin.model.vo.Admin" alias="Admin"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.SearchPageInfo" alias="SearchPageInfo"/>
+		<typeAlias type="com.kh.homeplus.master.model.vo.LookAround" alias="LookAround"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.Company" alias="Company"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.ApartmentMan" alias="ApartmentMan"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.Apsemidetail" alias="ApsemiDetail"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.Facilities" alias="Facilities"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.FacilityTask" alias="FacilityTask"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.ParkArea" alias="ParkArea"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.Road" alias="Road"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.Fac_List" alias="facList"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.Fac_Persent" alias="Persent"/>	
+		<typeAlias type="com.kh.homeplus.facility.model.vo.FacAnswer" alias="FacAnswer"/>
+		<typeAlias type="com.kh.homeplus.facility.model.vo.Readingroomman" alias="Rdman"/>
+		<typeAlias type="com.kh.homeplus.board.model.vo.Board" alias="Board"/>
+		<typeAlias type="com.kh.homeplus.board.model.vo.Board_Reply" alias="Board_Reply"/>
+		<typeAlias type="com.kh.homeplus.board.model.vo.Board_Declaration" alias="Board_Declaration"/>
+     	<typeAlias type="com.kh.homeplus.member.model.vo.Member" alias="Member" />
+		<typeAlias type="com.kh.homeplus.member.model.vo.MemberCost" alias="MemberCost" />
+		<typeAlias type="com.kh.homeplus.member.model.vo.MemberReserve" alias="MemberReserve" />
+		<typeAlias type="com.kh.homeplus.member.model.vo.MemberMemo" alias="MemberMemo" />
+		<typeAlias type="com.kh.homeplus.member.model.vo.MemberMessage" alias="MemberMessage" />
+		<typeAlias type="com.kh.homeplus.member.model.vo.MemberReply" alias="MemberReply" />
+		<typeAlias type="com.kh.homeplus.member.model.vo.MemberNotice" alias="MemberNotice" />
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.Search" alias="Search"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.Expense" alias="Expense"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.SearchConditionCompany" alias="SCC"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.SearchConditionWorker" alias="SCW"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.SearchConditionExpense" alias="SCE"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.SearchConditionReportFacility" alias="SCRF"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.SearchConditionReportWorker" alias="SCRW"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.FacilityTask" alias="FacilityTaskk"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.ManpowerExpense" alias="ME"/>
+		<typeAlias type="com.kh.homeplus.admin.model.vo.Admin" alias="Admin" />
+		
+		<!-- 영현 -->
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.ContractCompany" alias="ContractCompany"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.ContractWorker" alias="ContractWorker"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.ContractBulletinBoard" alias="ContractBulletinBoard"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.ContractFacility" alias="ContractFacility"/>
+		<typeAlias type="com.kh.homeplus.manpower.model.vo.Admin" alias="Adminn"/>
+
+		<!-- 민후 -->
+      	<typeAlias type="com.kh.homeplus.readingRoom.model.vo.ReadingRoom" alias="ReadingRoom"/>
+	  	<typeAlias type="com.kh.homeplus.gym.model.vo.Gym" alias="Gym"/>
+	  	<typeAlias type="com.kh.homeplus.bulletinBoard.model.vo.BulletinBoard" alias="BulletinBoard"/>
+	  	<typeAlias type="com.kh.homeplus.guestRoom.model.vo.GuestRoom" alias="GuestRoom"/>
+		
+		<!-- 임혁 실무자 mapper typeAlies-->
+		<typeAlias type="com.kh.homeplus.practitioners.model.vo.Annual" alias="Annual" />
+		<typeAlias type="com.kh.homeplus.practitioners.model.vo.Commute" alias="Commute" />
+		<typeAlias type="com.kh.homeplus.practitioners.model.vo.Delivery" alias="Delivery" />
+		<typeAlias type="com.kh.homeplus.practitioners.model.vo.CarDb" alias="CarDb" />
+		<typeAlias type="com.kh.homeplus.practitioners.model.vo.Hometax" alias="Hometax" />
+		<typeAlias type="com.kh.homeplus.practitioners.model.vo.TakingOver" alias="TakingOver" />
+		<typeAlias type="com.kh.homeplus.practitioners.model.vo.PatrolJournal" alias="PatrolJournal" />
+		<typeAlias type="com.kh.homeplus.practitioners.model.vo.PatrolMain" alias="PatrolMain" />
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mappers/master-mapper.xml"/>
+		<mapper resource="mappers/fac-mapper.xml"/>
+		<mapper resource="mappers/board-mapper.xml"/>
+		<mapper resource="mappers/member-mapper.xml" />
+		<mapper resource="mappers/man-mapper.xml"/>
+		<mapper resource="mappers/practitioners-mapper.xml"/>
+		<mapper resource="mappers/admin-mapper.xml"/>
+		<mapper resource="mappers/reading-mapper.xml"/>
+		<mapper resource="mappers/gym-mapper.xml"/>
+		<mapper resource="mappers/bulletin-mapper.xml"/>
+		<mapper resource="mappers/guest-mapper.xml"/>
+		<mapper resource="mappers/con-mapper.xml"/>
+	</mappers>
+
+</configuration>
